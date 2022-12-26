@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE | 2023</title>
+    <style>
+        p{
+            font-size: 20px;
+            color: #dbe2e8;
+            background-color: #1f2932;
+        }
+        body{
+            background-color: #1f2932;
+        }
+        .question{
+            border: 1px solid #dbe2e8;
+            border-radius: 10px;
+            margin: 20px auto;
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 55px;
+            font-size: 40px;
+            font-family: tahoma,arial;
+            color: #dbe2e8;
+        }
+        #btn{
+            display: none;
+            margin-top: 32px;
+            width: 100%;
+            line-height: 50px;
+            font-family: inherit;
+            background: #00ad5f;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            text-transform: capitalize;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+        #res{
+            font-size: larger;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+        #stdname{
+            text-align: center;
+            width: 50%;
+            height: 30px;
+            border-radius: 10px;
+            
+        }
+        img{
+            width: 100%;
+            background-color: #fff;
+            text-align: center;
+            margin: 0;
+            border-radius: 10px;
+        }
+        label{
+            color: #333;
+        }
+        #confirm{
+            display: block;
+            margin-top: 32px;
+            width: 100%;
+            line-height: 50px;
+            font-family: inherit;
+            background: #37b5a9;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            text-transform: capitalize;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        input:checked + .slider {
+        background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+        border-radius: 34px;
+        }
+
+        .slider.round:before {
+        border-radius: 50%;
+
+        }
+        input[type="radio"] {
+        /* Add if not using autoprefixer */
+        -webkit-appearance: none;
+        appearance: none;
+        /* For iOS < 15 to remove gradient background */
+        background-color: #fff;
+        /* Not removed via appearance */
+        margin: 0;
+        }
+    </style>
+</head>
+<body onload="show_answer()">
+    <h1>Measure MCQs</h1>
+    <div id="res"></div>
+    
+    <form name="quiz" id="quiz" action="/result" >
+        <div class="question">
+            <p>1.1g or first generation mobile network is _____</p>
+            <p><input type="radio" name="q1" value="1">A.Analog</p>
+            <p><input type="radio" name="q1" value="0">B.Digital</p>
+            <p><input type="radio" name="q1" value="0">C.Sequential</p>
+            <p><input type="radio" name="q1" value="0">D.Fuzzy</p>
+        </div>
+        <div class="question">
+            <p>2.who launched the first commercial 1g network in the world?</p>
+            <p><input type="radio" name="q2" value="1">A.NTT, Japan</p>
+            <p><input type="radio" name="q2" value="0">B.NMT, Netherlands</p>
+            <p><input type="radio" name="q2" value="0">C.TACS, UK</p>
+            <p><input type="radio" name="q2" value="0">D.AMPS, America</p>
+        </div>
+        <div class="question">
+            <p>3.which country is still using the 1g network in limited or demo use?</p>
+            <p><input type="radio" name="q3" value="0">A.USA</p>
+            <p><input type="radio" name="q3" value="0">B.CHINA</p>
+            <p><input type="radio" name="q3" value="0">C.UK</p>
+            <p><input type="radio" name="q3" value="1">D.Russia</p>
+        </div>
+        <div class="question">
+            <p>4.choose a 1g or first generation network from the options below.</p>
+            <p><input type="radio" name="q4" value="0">A.NMT, AMPS</p>
+            <p><input type="radio" name="q4" value="0">B.TACS, C-450</p>
+            <p><input type="radio" name="q4" value="0">C.TMA, TZ801</p>
+            <p><input type="radio" name="q4" value="1">D.All the above</p>
+        </div>
+        <div class="question">
+            <p>5.choose correct abbreviations from the list below.</p>
+            <p><input type="radio" name="q5" value="0">A.NMT - Nordic Mobile Telephone</p>
+            <p><input type="radio" name="q5" value="0">B.AMPS - Advanced Mobile Phone System</p>
+            <p><input type="radio" name="q5" value="0">C.TACS - Total Access Communication System</p>
+            <p><input type="radio" name="q5" value="1">D.All the above</p>
+        </div>
+        <div class="question">
+            <p>6.what are main problems in 1g technology?</p>
+            <p><input type="radio" name="q6" value="0">A.Noise</p>
+            <p><input type="radio" name="q6" value="0">B.Security</p>
+            <p><input type="radio" name="q6" value="0">C.Poor Battery backup</p>
+            <p><input type="radio" name="q6" value="1">D.All the above</p>
+        </div>
+        <div class="question">
+            <p>7.what is the cell size or coverage area in 1g technology?</p>
+            <p><input type="radio" name="q7" value="0">A.1-5Km</p>
+            <p><input type="radio" name="q7" value="0">B.20-60Km</p>
+            <p><input type="radio" name="q7" value="0">C.5-50Km</p>
+            <p><input type="radio" name="q7" value="1">D.2-30Km</p>
+        </div>
+        <div class="question">
+            <p>8.modulation technique employed by nmt type 1g network is ______</p>
+            <p><input type="radio" name="q8" value="0">A.TDM (Time Domain Multiplexing)</p>
+            <p><input type="radio" name="q8" value="0">B.QPSK (Quadrature Phase Shift Keying)</p>
+            <p><input type="radio" name="q8" value="1">C.FFSK (Fast Frequency Shift Keying)</p>
+            <p><input type="radio" name="q8" value="0">D.BPSK (Binary Phase Shift Keying)</p>
+        </div>
+        <div class="question">
+            <p>9.modulation technique employed by amps 1g network is ______</p>
+            <p><input type="radio" name="q9" value="0">A.TDMA - Time Division Multiple Access</p>
+            <p><input type="radio" name="q9" value="1">B.FDMA</p>
+            <p><input type="radio" name="q9" value="0">C.CDMA</p>
+            <p><input type="radio" name="q9" value="0">D.PDMA</p>
+        </div>
+        <div class="question">
+            <p>10.the process of intercepting analog signals from the phone to tower/bts, copying esn number of talking phone to the programmable phone and making calls freely is called _______ problem in a 1g network.</p>
+            <p><input type="radio" name="q10" value="0">A.Skimming</p>
+            <p><input type="radio" name="q10" value="0">B.Eve's Dropping</p>
+            <p><input type="radio" name="q10" value="1">C.Cloning</p>
+            <p><input type="radio" name="q10" value="0">D.Banning</p>
+        </div>
+        <div class="question">
+            <p>11.damps or digital-amps network ia treated as a ___ network.</p>
+            <p><input type="radio" name="q11" value="0">A.1G</p>
+            <p><input type="radio" name="q11" value="1">B.2G</p>
+            <p><input type="radio" name="q11" value="0">C.1.5G</p>
+            <p><input type="radio" name="q11" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>12.choose a 1g network from the list below.</p>
+            <p><input type="radio" name="q12" value="0">A.HiCap</p>
+            <p><input type="radio" name="q12" value="0">B.Mobitex</p>
+            <p><input type="radio" name="q12" value="0">C.ETACS</p>
+            <p><input type="radio" name="q12" value="1">D.All the above</p>
+        </div>
+        <div class="question">
+            <p>13.the terminology "cellular" was first used by ______ network.</p>
+            <p><input type="radio" name="q13" value="0">A.TACS</p>
+            <p><input type="radio" name="q13" value="1">B.AMPS</p>
+            <p><input type="radio" name="q13" value="0">C.NMT</p>
+            <p><input type="radio" name="q13" value="0">D.C-450</p>
+        </div>
+        <div class="question">
+            <p>14.which mobile network type introduced international roaming on 1g network?</p>
+            <p><input type="radio" name="q14" value="0">A.AMPS</p>
+            <p><input type="radio" name="q14" value="0">B.NTT</p>
+            <p><input type="radio" name="q14" value="1">C.NMT</p>
+            <p><input type="radio" name="q14" value="0">D.TACS</p>
+        </div>
+        <div class="question">
+            <p>15.gsm corresponds to which generation?</p>
+            <p><input type="radio" name="q15" value="0">A.1G</p>
+            <p><input type="radio" name="q15" value="0">B.1.5G</p>
+            <p><input type="radio" name="q15" value="1">C.2G</p>
+            <p><input type="radio" name="q15" value="0">D.3G</p>
+        </div>
+        <div class="question">
+            <p>16.what is the type signalling between mobile station and base transceiver station in a 2g technology?</p>
+            <p><input type="radio" name="q16" value="0">A.Analog</p>
+            <p><input type="radio" name="q16" value="1">B.Digital</p>
+            <p><input type="radio" name="q16" value="0">C.Discrete</p>
+            <p><input type="radio" name="q16" value="0">D.Dampened</p>
+        </div>
+        <div class="question">
+            <p>17.gsm technology was a standard developed by</p>
+            <p><input type="radio" name="q17" value="0">A.United Kingdom</p>
+            <p><input type="radio" name="q17" value="0">B.United States</p>
+            <p><input type="radio" name="q17" value="1">C.Europe</p>
+            <p><input type="radio" name="q17" value="0">D.Australia</p>
+        </div>
+        <div class="question">
+            <p>18.who developed standards for gsm technology?</p>
+            <p><input type="radio" name="q18" value="0">A.ANSI - American National Standards Institute</p>
+            <p><input type="radio" name="q18" value="1">B.ETSI - European Telecommunications Standards Institute</p>
+            <p><input type="radio" name="q18" value="0">C.IEEE - Institute of Electrical and Electronics Engineers</p>
+            <p><input type="radio" name="q18" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>19.data service started or offered by 2g gsm technology is</p>
+            <p><input type="radio" name="q19" value="0">A.GPRS</p>
+            <p><input type="radio" name="q19" value="0">B.EDGE</p>
+            <p><input type="radio" name="q19" value="0">C.H</p>
+            <p><input type="radio" name="q19" value="1">D.both a and b</p>
+        </div>
+        <div class="question">
+            <p>20.gprs stands for</p>
+            <p><input type="radio" name="q20" value="1">A.General Packet Radio Service</p>
+            <p><input type="radio" name="q20" value="0">B.General Packet Radio Pilot</p>
+            <p><input type="radio" name="q20" value="0">C.Generation Pilot Radio Service</p>
+            <p><input type="radio" name="q20" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>21.edge stands for</p>
+            <p><input type="radio" name="q21" value="1">A.Enhanced Data Rate for GSM Evolution</p>
+            <p><input type="radio" name="q21" value="0">B.Enhanced Data for GSM</p>
+            <p><input type="radio" name="q21" value="0">C.Enhanced Data for GSM Enhanced</p>
+            <p><input type="radio" name="q21" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>22.edge services are considered as _____ generation services.</p>
+            <p><input type="radio" name="q22" value="0">A.2G</p>
+            <p><input type="radio" name="q22" value="1">B.2.5G</p>
+            <p><input type="radio" name="q22" value="0">C.3G</p>
+            <p><input type="radio" name="q22" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>23.which country deployed the first gsm network?</p>
+            <p><input type="radio" name="q23" value="0">A.USA</p>
+            <p><input type="radio" name="q23" value="0">B.UK</p>
+            <p><input type="radio" name="q23" value="0">C.France</p>
+            <p><input type="radio" name="q23" value="1">D.Finland</p>
+        </div>
+        <div class="question">
+            <p>24.the type of switching used in a gsm network is _____?</p>
+            <p><input type="radio" name="q24" value="0">A.Circuit Switching</p>
+            <p><input type="radio" name="q24" value="0">B.Packet Switching</p>
+            <p><input type="radio" name="q24" value="1">C.both a and b</p>
+            <p><input type="radio" name="q24" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>25.which is the non european country operator to deploy gsm services?</p>
+            <p><input type="radio" name="q25" value="0">A.AT&T</p>
+            <p><input type="radio" name="q25" value="0">B.NTT</p>
+            <p><input type="radio" name="q25" value="1">C.Telecom Australia</p>
+            <p><input type="radio" name="q25" value="0">D.Docomo</p>
+        </div>
+        <div class="question">
+            <p>26.the world's first gsm call was made on</p>
+            <p><input type="radio" name="q26" value="0">A.1990 July 1st</p>
+            <p><input type="radio" name="q26" value="1">B.1991 July 1st</p>
+            <p><input type="radio" name="q26" value="0">C.1992 July 1st</p>
+            <p><input type="radio" name="q26" value="0">D.1993 July 1st</p>
+        </div>
+        <div class="question">
+            <p>27.when did fax, data and sms services in gsm network launch?</p>
+            <p><input type="radio" name="q27" value="0">A.1991</p>
+            <p><input type="radio" name="q27" value="1">B.1995</p>
+            <p><input type="radio" name="q27" value="0">C.1997</p>
+            <p><input type="radio" name="q27" value="0">D.2000</p>
+        </div>
+        <div class="question">
+            <p>28.commercial gprs enabled handsets or mobiles were launched in ______ year for the first time.</p>
+            <p><input type="radio" name="q28" value="0">A.1995</p>
+            <p><input type="radio" name="q28" value="0">B.1997</p>
+            <p><input type="radio" name="q28" value="1">C.2000</p>
+            <p><input type="radio" name="q28" value="0">D.2003</p>
+        </div>
+        <div class="question">
+            <p>29.choose frequency band that was chosen to operate a gsm network.</p>
+            <p><input type="radio" name="q29" value="0">A.900MHz</p>
+            <p><input type="radio" name="q29" value="0">B.1800MHz</p>
+            <p><input type="radio" name="q29" value="0">C.850, 1900MHz</p>
+            <p><input type="radio" name="q29" value="1">D.All the above</p>
+        </div>
+        <div class="question">
+            <p>30.which is first operator to shutdown 2g or gsm services completely?</p>
+            <p><input type="radio" name="q30" value="0">A.AT&T</p>
+            <p><input type="radio" name="q30" value="1">B.TELSTRA, Australia</p>
+            <p><input type="radio" name="q30" value="0">C.NTT, Japan</p>
+            <p><input type="radio" name="q30" value="0">D.Vodafone, UK</p>
+        </div>
+        <div class="question">
+            <p>31.cryptographic algorithms used by gsm technology are ______</p>
+            <p><input type="radio" name="q31" value="0">A.A5/1</p>
+            <p><input type="radio" name="q31" value="0">B.A5/2</p>
+            <p><input type="radio" name="q31" value="0">C.A5/3</p>
+            <p><input type="radio" name="q31" value="1">D.All the above</p>
+        </div>
+        <div class="question">
+            <p>32.gprs encryption algorithms are ______ </p>
+            <p><input type="radio" name="q32" value="0">A.GEA/1</p>
+            <p><input type="radio" name="q32" value="0">B.GEA/2</p>
+            <p><input type="radio" name="q32" value="0">C.GEA/3</p>
+            <p><input type="radio" name="q32" value="1">D.All the above</p>
+        </div>
+        <div class="question">
+            <p>33.which frequency band supports more coverage area in a gsm or 2g network?</p>
+            <p><input type="radio" name="q33" value="0">A.1900MHz</p>
+            <p><input type="radio" name="q33" value="0">B.1800MHz</p>
+            <p><input type="radio" name="q33" value="1">C.900MHz</p>
+            <p><input type="radio" name="q33" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>34.what is the uplink frequency in a gsm system?</p>
+            <p><input type="radio" name="q34" value="0">A.935-960MHz</p>
+            <p><input type="radio" name="q34" value="1">B.890-915MHz</p>
+            <p><input type="radio" name="q34" value="0">C.940-956MHz</p>
+            <p><input type="radio" name="q34" value="0">D.810-826MHz</p>
+        </div>
+        <div class="question">
+            <p>35.what is the downlink frequency in a gsm system?</p>
+            <p><input type="radio" name="q35" value="1">A.935-960MHz</p>
+            <p><input type="radio" name="q35" value="0">B.890-915MHz</p>
+            <p><input type="radio" name="q35" value="0">C.940-956MHz</p>
+            <p><input type="radio" name="q35" value="0">D.810-826MHz</p>
+        </div>
+        <div class="question">
+            <p>36.what is an uplink in a cellular network?</p>
+            <p><input type="radio" name="q36" value="0">A.Sending of data from Base Station to Mobile.</p>
+            <p><input type="radio" name="q36" value="1">B.Sending of data from Mobile to the Base Station</p>
+            <p><input type="radio" name="q36" value="0">C.Sending of data from Base Station to Base Station Controller</p>
+            <p><input type="radio" name="q36" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>37.what is a downlink in a gsm network?</p>
+            <p><input type="radio" name="q37" value="0">A.Sending of data from Mobile to the Base Station.</p>
+            <p><input type="radio" name="q37" value="1">B.Sending of data from Base station to the Mobile</p>
+            <p><input type="radio" name="q37" value="0">C.Sending of data from Base Station Controller to the Mobile</p>
+            <p><input type="radio" name="q37" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>38.what is the frequency band of a dcs - digital cellular system?</p>
+            <p><input type="radio" name="q38" value="1">A.1800 Band (1710-1785, 1805-1880MHz)</p>
+            <p><input type="radio" name="q38" value="0">B.900 Band ( 890-915, 935-960MHz)</p>
+            <p><input type="radio" name="q38" value="0">C.850 Band (824-849, 869-894MHz)</p>
+            <p><input type="radio" name="q38" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>39.what is the frequency band of pcs (personal communication service) system used in canada and usa?</p>
+            <p><input type="radio" name="q39" value="0">A.900 Band (890-915, 935-960MHz)</p>
+            <p><input type="radio" name="q39" value="1">B.1900 Band (1850-1910, 1930-1990MHz)</p>
+            <p><input type="radio" name="q39" value="0">C.1800 Band (1710-1785, 1805-1880MHz)</p>
+            <p><input type="radio" name="q39" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>40.what is true about any frequency band?</p>
+            <p><input type="radio" name="q40" value="0">A.First range corresponds to UPLINK.</p>
+            <p><input type="radio" name="q40" value="0">B.Second range corresponds to DOWNLINK</p>
+            <p><input type="radio" name="q40" value="0">C.20MHz gap between Uplink and Downlink</p>
+            <p><input type="radio" name="q40" value="1">D.All the above</p>
+        </div>
+        <div class="question">
+            <p>41.most used gsm frequency bands in the u.s are ____?</p>
+            <p><input type="radio" name="q41" value="0">A.900, 1800MHz</p>
+            <p><input type="radio" name="q41" value="0">B.850, 900MHz</p>
+            <p><input type="radio" name="q41" value="1">C.850, 1900 MHz</p>
+            <p><input type="radio" name="q41" value="0">D.1800, 1900MHz</p>
+        </div>
+        <div class="question">
+            <p>42.what are the rural and urban frequency bands used for gsm in the us?</p>
+            <p><input type="radio" name="q42" value="1">A.850MHz - Rural Band1900MHz - Urban band</p>
+            <p><input type="radio" name="q42" value="0">B.850MHz - Urban band1900MHz - Rural band</p>
+            <p><input type="radio" name="q42" value="0">C.900MHz - Rural band1800MHz - Urban band</p>
+            <p><input type="radio" name="q42" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>43.what are the frequency bands supported by the european triband phones?</p>
+            <p><input type="radio" name="q43" value="0">A.850, 900, 1800MHz</p>
+            <p><input type="radio" name="q43" value="1">B.900, 1800, 1900MHz</p>
+            <p><input type="radio" name="q43" value="0">C.850, 1800, 1900MHz</p>
+            <p><input type="radio" name="q43" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>44.the quad band phone supporting all four major gsm frequency bands like 850mhz, 1900mhz, 900mhz and 1800mhz is also called ______ phone.</p>
+            <p><input type="radio" name="q44" value="0">A.Real Phone</p>
+            <p><input type="radio" name="q44" value="1">B.World Phone</p>
+            <p><input type="radio" name="q44" value="0">C.Super Phone</p>
+            <p><input type="radio" name="q44" value="0">D.Global Phone</p>
+        </div>
+        <div class="question">
+            <p>45.the term "cellular communication" was introduced by which gsm frequency band?</p>
+            <p><input type="radio" name="q45" value="0">A.900MHz</p>
+            <p><input type="radio" name="q45" value="0">B.1800MHz</p>
+            <p><input type="radio" name="q45" value="1">C.850MHz</p>
+            <p><input type="radio" name="q45" value="0">D.1900MHz</p>
+        </div>
+        <div class="question">
+            <p>46.multiple access technique employed in a gsm network is/are _____</p>
+            <p><input type="radio" name="q46" value="0">A.TDMA</p>
+            <p><input type="radio" name="q46" value="0">B.FDMA</p>
+            <p><input type="radio" name="q46" value="0">C.CDMA</p>
+            <p><input type="radio" name="q46" value="1">D.Both TDMA and FDMA</p>
+        </div>
+        <div class="question">
+            <p>47.who developed protocols to implement gsm, gprs and edge services?</p>
+            <p><input type="radio" name="q47" value="0">A.ANSI</p>
+            <p><input type="radio" name="q47" value="0">B.SOLARIS</p>
+            <p><input type="radio" name="q47" value="1">C.3GPP</p>
+            <p><input type="radio" name="q47" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>48.3gpp stands for ____</p>
+            <p><input type="radio" name="q48" value="0">A.3rd Generation Pulse Project</p>
+            <p><input type="radio" name="q48" value="1">B.3rd Generation Partnership Project</p>
+            <p><input type="radio" name="q48" value="0">C.3rd Generation Protocols Project</p>
+            <p><input type="radio" name="q48" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>49.the area covered by one transmitter in a gsm network is called _____</p>
+            <p><input type="radio" name="q49" value="0">A.Licensed area</p>
+            <p><input type="radio" name="q49" value="0">B.Octagon</p>
+            <p><input type="radio" name="q49" value="1">C.Cell</p>
+            <p><input type="radio" name="q49" value="0">D.Yard</p>
+        </div>
+        <div class="question">
+            <p>50.what is the maximum distance that a gsm cell can radiate it's signal?</p>
+            <p><input type="radio" name="q50" value="0">A.10Km</p>
+            <p><input type="radio" name="q50" value="0">B.22Km</p>
+            <p><input type="radio" name="q50" value="1">C.35Km</p>
+            <p><input type="radio" name="q50" value="0">D.50Km</p>
+        </div>
+        <div class="question">
+            <p>51.in a gsm network, a cell radius depends on ________</p>
+            <p><input type="radio" name="q51" value="0">A.Tower or Antenna height</p>
+            <p><input type="radio" name="q51" value="0">B.Antenna gain</p>
+            <p><input type="radio" name="q51" value="0">C.Weather conditions</p>
+            <p><input type="radio" name="q51" value="1">D.All the above</p>
+        </div>
+        <div class="question">
+            <p>52.what are the types of cells in a gsm network?</p>
+            <p><input type="radio" name="q52" value="0">A.Micro Cell, Macro Cell</p>
+            <p><input type="radio" name="q52" value="0">B.Pico Cell, Femto Cell</p>
+            <p><input type="radio" name="q52" value="0">C.Umbrella Cell</p>
+            <p><input type="radio" name="q52" value="1">D.All the above</p>
+        </div>
+        <div class="question">
+            <p>53.if an antenna or transmitter is mounted on top of a tower or building, what is the cell type formed?</p>
+            <p><input type="radio" name="q53" value="0">A.Micro cell</p>
+            <p><input type="radio" name="q53" value="1">B.Macro cell</p>
+            <p><input type="radio" name="q53" value="0">C.Pico cell</p>
+            <p><input type="radio" name="q53" value="0">D.Tento cell</p>
+        </div>
+        <div class="question">
+            <p>54.if an antenna or transmitter is mounted at less height on the tower or building, what is the cell type formed?</p>
+            <p><input type="radio" name="q54" value="0">A.Micro cell</p>
+            <p><input type="radio" name="q54" value="0">B.Macro cell</p>
+            <p><input type="radio" name="q54" value="1">C.Pico cell</p>
+            <p><input type="radio" name="q54" value="0">D.Tento cell</p>
+        </div>
+        <div class="question">
+            <p>55.what is the type of cell that covers only 10-20 meters?</p>
+            <p><input type="radio" name="q55" value="0">A.Micro cell</p>
+            <p><input type="radio" name="q55" value="0">B.Macro cell</p>
+            <p><input type="radio" name="q55" value="1">C.Pico cell</p>
+            <p><input type="radio" name="q55" value="0">D.Femto cell</p>
+        </div>
+        <div class="question">
+            <p>56.what is the type cell that connects to the service provider network through a broadband or internet connection at a remote village? (transmission media is internet instead of ofc / microwave)</p>
+            <p><input type="radio" name="q56" value="0">A.Micro cell</p>
+            <p><input type="radio" name="q56" value="0">B.Macro cell</p>
+            <p><input type="radio" name="q56" value="0">C.Pico cell</p>
+            <p><input type="radio" name="q56" value="1">D.Femto cell</p>
+        </div>
+        <div class="question">
+            <p>57.a cell that covers already existing small cells is called ____ cell.</p>
+            <p><input type="radio" name="q57" value="0">A.Micro cell</p>
+            <p><input type="radio" name="q57" value="0">B.Macro cell</p>
+            <p><input type="radio" name="q57" value="1">C.Umbrella cell</p>
+            <p><input type="radio" name="q57" value="0">D.Pico cell</p>
+        </div>
+        <div class="question">
+            <p>58.what is main purpose of umbrella cells?</p>
+            <p><input type="radio" name="q58" value="0">A.Vast coverage area</p>
+            <p><input type="radio" name="q58" value="1">B.Easy handovers from fast moving vehicles</p>
+            <p><input type="radio" name="q58" value="0">C.Good signal to noise ratio</p>
+            <p><input type="radio" name="q58" value="0">D.Useful only inside tunnels</p>
+        </div>
+        <div class="question">
+            <p>59.the power level of an umbrella cell compared to inner cells is ______</p>
+            <p><input type="radio" name="q59" value="0">A.More</p>
+            <p><input type="radio" name="q59" value="1">B.Less</p>
+            <p><input type="radio" name="q59" value="0">C.Equal</p>
+            <p><input type="radio" name="q59" value="0">D.Very high</p>
+        </div>
+        <div class="question">
+            <p>60.what do you call an equipment that receives and transmits radio signals?</p>
+            <p><input type="radio" name="q60" value="0">A.BTS</p>
+            <p><input type="radio" name="q60" value="1">B.Transceiver</p>
+            <p><input type="radio" name="q60" value="0">C.Transistor</p>
+            <p><input type="radio" name="q60" value="0">D.Controller</p>
+        </div>
+        <div class="question">
+            <p>61.which type of gsm cell provides indoor coverage in shopping malls, tunnels and airports?</p>
+            <p><input type="radio" name="q61" value="0">A.Macro cell</p>
+            <p><input type="radio" name="q61" value="0">B.Micro cell</p>
+            <p><input type="radio" name="q61" value="1">C.Pico cell</p>
+            <p><input type="radio" name="q61" value="0">D.Femto cell</p>
+        </div>
+        <div class="question">
+            <p>62.what is a repeater in cellular communication?</p>
+            <p><input type="radio" name="q62" value="0">A.A repeater picks a weak signal and boosts it.</p>
+            <p><input type="radio" name="q62" value="0">B.Repeaters are installed in indoor areas usually.</p>
+            <p><input type="radio" name="q62" value="0">C.Each repeater has a band of frequencies.</p>
+            <p><input type="radio" name="q62" value="1">D.All the above</p>
+        </div>
+        <div class="question">
+            <p>63.a gsm technique timing advance used by bts or base station can _______ cell radius.</p>
+            <p><input type="radio" name="q63" value="0">A.Decrease</p>
+            <p><input type="radio" name="q63" value="0">B.Increase</p>
+            <p><input type="radio" name="q63" value="1">C.Both increase and decrease</p>
+            <p><input type="radio" name="q63" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>64.a group of cells is also called ____ </p>
+            <p><input type="radio" name="q64" value="0">A.BSC</p>
+            <p><input type="radio" name="q64" value="0">B.BTS</p>
+            <p><input type="radio" name="q64" value="1">C.Cluster</p>
+            <p><input type="radio" name="q64" value="0">D.Atom</p>
+        </div>
+        <div class="question">
+            <p>65.what is the number of cells a cluster contains?</p>
+            <p><input type="radio" name="q65" value="0">A.4</p>
+            <p><input type="radio" name="q65" value="0">B.7</p>
+            <p><input type="radio" name="q65" value="0">C.12 or 21</p>
+            <p><input type="radio" name="q65" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>66.what is the reason for using cluster in a gsm network?</p>
+            <p><input type="radio" name="q66" value="0">A.Easy to to Operation and Maintenance</p>
+            <p><input type="radio" name="q66" value="1">B.Frequency Reuse</p>
+            <p><input type="radio" name="q66" value="0">C.Less delay in transmission</p>
+            <p><input type="radio" name="q66" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>67.when reusing a frequency, what is the minimum distance (in terms of diameter of cell) to be followed?</p>
+            <p><input type="radio" name="q67" value="0">A.1.5D</p>
+            <p><input type="radio" name="q67" value="0">B.2D</p>
+            <p><input type="radio" name="q67" value="1">C.2.5D</p>
+            <p><input type="radio" name="q67" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>68.what is the need for frequency reuse in a gsm network?</p>
+            <p><input type="radio" name="q68" value="0">A.Frequency or Spectrum is costly. It is allotted limitedly to each Operator. Say 5MHz to each.</p>
+            <p><input type="radio" name="q68" value="0">B.Frequency Reuse increases the overall capacity of the operator.</p>
+            <p><input type="radio" name="q68" value="0">C.Using TDMA, a single carrier frequency can serve up to 8 simultaneous customers in a 4.615ms time frame. So, simply adding more frames improves call quality in densely populated areas.</p>
+            <p><input type="radio" name="q68" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>69.what are the three main parts of a gsm architecture or structure?</p>
+            <p><input type="radio" name="q69" value="0">A.Mobile Station</p>
+            <p><input type="radio" name="q69" value="0">B.BSS - Base Station Subsystem</p>
+            <p><input type="radio" name="q69" value="0">C.NSS - Network and Switching Subsystem</p>
+            <p><input type="radio" name="q69" value="1">D.All the above</p>
+        </div>
+        <div class="question">
+            <p>70.what are the main parts of a mobile station in a gsm network?</p>
+            <p><input type="radio" name="q70" value="0">A.MT - Mobile Terminal</p>
+            <p><input type="radio" name="q70" value="0">B.SIM - Subscriber Identity Module</p>
+            <p><input type="radio" name="q70" value="1">C.both a and b</p>
+            <p><input type="radio" name="q70" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>71.what are the main parts of a bss (base station subsystem) in a gsm network?</p>
+            <p><input type="radio" name="q71" value="0">A.BTS - Base Transceiver Station</p>
+            <p><input type="radio" name="q71" value="0">B.BSC - Base Station Controller</p>
+            <p><input type="radio" name="q71" value="1">C.both a and b</p>
+            <p><input type="radio" name="q71" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>72.what are the main parts of a nss (network and switching subsystem) of a gsm architecture?</p>
+            <p><input type="radio" name="q72" value="0">A.MSC - Mobile Switching Center</p>
+            <p><input type="radio" name="q72" value="0">B.HLR and AuC</p>
+            <p><input type="radio" name="q72" value="0">C.VLR, EIR</p>
+            <p><input type="radio" name="q72" value="1">D.All the above</p>
+        </div>
+        <div class="question">
+            <p>73.what are the main parts of an msc (mobile switching center) system in a gsm structure?</p>
+            <p><input type="radio" name="q73" value="0">A.MGW - Media Gateway</p>
+            <p><input type="radio" name="q73" value="0">B.MSC Server</p>
+            <p><input type="radio" name="q73" value="1">C.both a and b</p>
+            <p><input type="radio" name="q73" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>74.a gprs core network is part of system in a gsm network structure</p>
+            <p><input type="radio" name="q74" value="0">A.Mobile Station</p>
+            <p><input type="radio" name="q74" value="0">B.BSS</p>
+            <p><input type="radio" name="q74" value="0">C.MSS</p>
+            <p><input type="radio" name="q74" value="1">D.NSS</p>
+        </div>
+        <div class="question">
+            <p>75.a bts is also called _____ by general public.</p>
+            <p><input type="radio" name="q75" value="1">A.Mobile tower</p>
+            <p><input type="radio" name="q75" value="0">B.Exchange</p>
+            <p><input type="radio" name="q75" value="0">C.Charging Point</p>
+            <p><input type="radio" name="q75" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>76.each mobile terminal is identified by a unique ______ number.</p>
+            <p><input type="radio" name="q76" value="1">A.IMEI</p>
+            <p><input type="radio" name="q76" value="0">B.SIM</p>
+            <p><input type="radio" name="q76" value="0">C.IMSI</p>
+            <p><input type="radio" name="q76" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>77.imei stands for</p>
+            <p><input type="radio" name="q77" value="0">A.Internal Mobile Equipment Identity</p>
+            <p><input type="radio" name="q77" value="1">B.International Mobile Equipment Identity</p>
+            <p><input type="radio" name="q77" value="0">C.Intra Mobile Enable Identity</p>
+            <p><input type="radio" name="q77" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>78.each sim is identified by a unique _____ number.</p>
+            <p><input type="radio" name="q78" value="1">A.IMSI</p>
+            <p><input type="radio" name="q78" value="0">B.IMEI</p>
+            <p><input type="radio" name="q78" value="0">C.MSDN</p>
+            <p><input type="radio" name="q78" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>79.imsi stands for</p>
+            <p><input type="radio" name="q79" value="0">A.Internal Mobile Subscriber Identity</p>
+            <p><input type="radio" name="q79" value="1">B.International Mobile Subscriber Identity</p>
+            <p><input type="radio" name="q79" value="0">C.Investigating Mobile Subscriber Identity</p>
+            <p><input type="radio" name="q79" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>80.your mobile number is actually called ______ number.</p>
+            <p><input type="radio" name="q80" value="0">A.IMSI</p>
+            <p><input type="radio" name="q80" value="0">B.SIM</p>
+            <p><input type="radio" name="q80" value="1">C.MSISDN</p>
+            <p><input type="radio" name="q80" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>81.imsi number of a sim is also called</p>
+            <p><input type="radio" name="q81" value="0">A.MSISDN</p>
+            <p><input type="radio" name="q81" value="0">B.IMEI</p>
+            <p><input type="radio" name="q81" value="1">C.ICCID</p>
+            <p><input type="radio" name="q81" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>82.what controller a group of bts or cell towers?</p>
+            <p><input type="radio" name="q82" value="1">A.BSC</p>
+            <p><input type="radio" name="q82" value="0">B.MSC</p>
+            <p><input type="radio" name="q82" value="0">C.HLR</p>
+            <p><input type="radio" name="q82" value="0">D.VLR</p>
+        </div>
+        <div class="question">
+            <p>83.how many digits of pin (personal identification number) is allowed to protect a sim card?</p>
+            <p><input type="radio" name="q83" value="1">A.4</p>
+            <p><input type="radio" name="q83" value="0">B.8</p>
+            <p><input type="radio" name="q83" value="0">C.10</p>
+            <p><input type="radio" name="q83" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>84.what is puk code of a sim?</p>
+            <p><input type="radio" name="q84" value="0">A.PIN Unlock Key</p>
+            <p><input type="radio" name="q84" value="0">B.4 digit code</p>
+            <p><input type="radio" name="q84" value="0">C.It is like a password to enter after inserting SIM in a mobile for the first time. It prevents misuse.</p>
+            <p><input type="radio" name="q84" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>85.the only element that personalises a mobile station is _______.</p>
+            <p><input type="radio" name="q85" value="0">A.Back cover</p>
+            <p><input type="radio" name="q85" value="1">B.SIM</p>
+            <p><input type="radio" name="q85" value="0">C.Screen guard</p>
+            <p><input type="radio" name="q85" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>86.what is the maximum number of transceivers a bts can handle is ?</p>
+            <p><input type="radio" name="q86" value="0">A.8</p>
+            <p><input type="radio" name="q86" value="0">B.12</p>
+            <p><input type="radio" name="q86" value="1">C.16</p>
+            <p><input type="radio" name="q86" value="0">D.22</p>
+        </div>
+        <div class="question">
+            <p>87.what are the functions of a bsc?</p>
+            <p><input type="radio" name="q87" value="0">A.Handovers, exchange functions</p>
+            <p><input type="radio" name="q87" value="0">B.Frequency hopping</p>
+            <p><input type="radio" name="q87" value="0">C.Control of radio frequency power level of BTS</p>
+            <p><input type="radio" name="q87" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>88.what is the main function of nss?</p>
+            <p><input type="radio" name="q88" value="0">A.Establishing communication between mobile and landline numbers.</p>
+            <p><input type="radio" name="q88" value="0">B.Providing eligible services to the subscriber</p>
+            <p><input type="radio" name="q88" value="0">C.Providing parameters for Authentication and Encryption</p>
+            <p><input type="radio" name="q88" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>89.what is the name of the database that stores subscriber information under an msc and his eligible services?</p>
+            <p><input type="radio" name="q89" value="0">A.MSC</p>
+            <p><input type="radio" name="q89" value="1">B.HLR</p>
+            <p><input type="radio" name="q89" value="0">C.EIR</p>
+            <p><input type="radio" name="q89" value="0">D.AuC</p>
+        </div>
+        <div class="question">
+            <p>90.what is the name of a database used mainly that stores information of a subscriber along with eligible services under roaming or another msc area?</p>
+            <p><input type="radio" name="q90" value="0">A.HLR</p>
+            <p><input type="radio" name="q90" value="1">B.VLR</p>
+            <p><input type="radio" name="q90" value="0">C.EIR</p>
+            <p><input type="radio" name="q90" value="0">D.AuC</p>
+        </div>
+        <div class="question">
+            <p>91.covering area of an msc is also called ____ </p>
+            <p><input type="radio" name="q91" value="0">A.VLR</p>
+            <p><input type="radio" name="q91" value="1">B.HLR</p>
+            <p><input type="radio" name="q91" value="0">C.EIR</p>
+            <p><input type="radio" name="q91" value="0">D.AUC</p>
+        </div>
+        <div class="question">
+            <p>92.usually, vlr contains a copy of data of ______ </p>
+            <p><input type="radio" name="q92" value="1">A.HLR</p>
+            <p><input type="radio" name="q92" value="0">B.EIR</p>
+            <p><input type="radio" name="q92" value="0">C.AUC</p>
+            <p><input type="radio" name="q92" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>93.between vlr and hlr, which one is used mostly allow or bar services to the user?</p>
+            <p><input type="radio" name="q93" value="1">A.VLR</p>
+            <p><input type="radio" name="q93" value="0">B.HLR</p>
+            <p><input type="radio" name="q93" value="0">C.Both are used equally</p>
+            <p><input type="radio" name="q93" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>94.state true or false.the area under one msc or hlr is also the area under one vlr.</p>
+            <p><input type="radio" name="q94" value="1">A.True</p>
+            <p><input type="radio" name="q94" value="0">B.False</p>
+            <p><input type="radio" name="q94" value="0">C.May be True or False</p>
+            <p><input type="radio" name="q94" value="0">D.Can't say</p>
+        </div>
+        <div class="question">
+            <p>95.usually, vlr is part of _____ .</p>
+            <p><input type="radio" name="q95" value="0">A.HLR</p>
+            <p><input type="radio" name="q95" value="0">B.EIR</p>
+            <p><input type="radio" name="q95" value="0">C.AUC</p>
+            <p><input type="radio" name="q95" value="1">D.MSC</p>
+        </div>
+        <div class="question">
+            <p>96.as vlr is fast to access, vlr avoids frequent accessing of ________ .</p>
+            <p><input type="radio" name="q96" value="0">A.EIR</p>
+            <p><input type="radio" name="q96" value="0">B.AUC</p>
+            <p><input type="radio" name="q96" value="1">C.HLR</p>
+            <p><input type="radio" name="q96" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>97.in a gsm architecture, which system provides authentication and encryption services?</p>
+            <p><input type="radio" name="q97" value="0">A.HLR</p>
+            <p><input type="radio" name="q97" value="0">B.VLR</p>
+            <p><input type="radio" name="q97" value="0">C.EIR</p>
+            <p><input type="radio" name="q97" value="1">D.AUC</p>
+        </div>
+        <div class="question">
+            <p>98.in a gsm architecture, which system stores the imei numbers of all working mobile phones under the network?</p>
+            <p><input type="radio" name="q98" value="0">A.HLR</p>
+            <p><input type="radio" name="q98" value="0">B.VLR</p>
+            <p><input type="radio" name="q98" value="1">C.EIR</p>
+            <p><input type="radio" name="q98" value="0">D.AUC</p>
+        </div>
+        <div class="question">
+            <p>99.what are the types of lists maintained by eir (equipment identification register)?</p>
+            <p><input type="radio" name="q99" value="0">A.Whitelist</p>
+            <p><input type="radio" name="q99" value="0">B.Grey List</p>
+            <p><input type="radio" name="q99" value="0">C.Black List</p>
+            <p><input type="radio" name="q99" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>100.choose a correct statement about eir list of imeis.</p>
+            <p><input type="radio" name="q100" value="0">A.Whitelist - List of allowed IMEIs or Mobile Devices</p>
+            <p><input type="radio" name="q100" value="0">B.Grey List - List of IMEIs with limited allowed services</p>
+            <p><input type="radio" name="q100" value="0">C.Blacklist - List of forbidden IMEIs or mobiles</p>
+            <p><input type="radio" name="q100" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>101.mobile calls to or from fixed networks (landlines) are handled by ________ .</p>
+            <p><input type="radio" name="q101" value="0">A.MSC</p>
+            <p><input type="radio" name="q101" value="1">B.GMSC (Gateway MSC)</p>
+            <p><input type="radio" name="q101" value="0">C.HLR</p>
+            <p><input type="radio" name="q101" value="0">D.VLR</p>
+        </div>
+        <div class="question">
+            <p>102.each cell in a gsm network has</p>
+            <p><input type="radio" name="q102" value="0">A.Cell number</p>
+            <p><input type="radio" name="q102" value="0">B.Cell Global number</p>
+            <p><input type="radio" name="q102" value="1">C.Cell Global Identity number</p>
+            <p><input type="radio" name="q102" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>103.a group of cells in a gsm network has a _________ number.</p>
+            <p><input type="radio" name="q103" value="0">A.Location number</p>
+            <p><input type="radio" name="q103" value="0">B.Location Area number</p>
+            <p><input type="radio" name="q103" value="1">C.Location Area Identity number</p>
+            <p><input type="radio" name="q103" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>104.a single msc or vlr can have many ______ .</p>
+            <p><input type="radio" name="q104" value="0">A.HLR</p>
+            <p><input type="radio" name="q104" value="1">B.Location Areas (LA)</p>
+            <p><input type="radio" name="q104" value="0">C.CGI - Cell Global Index</p>
+            <p><input type="radio" name="q104" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>105.total area served by one network operator is called ______ .</p>
+            <p><input type="radio" name="q105" value="0">A.PSTN</p>
+            <p><input type="radio" name="q105" value="1">B.PLMN</p>
+            <p><input type="radio" name="q105" value="0">C.LA</p>
+            <p><input type="radio" name="q105" value="0">D.CGI</p>
+        </div>
+        <div class="question">
+            <p>106.what is dtx or discontinuous transmission in a gsm network?</p>
+            <p><input type="radio" name="q106" value="0">A.DTC stops transmitter when the person is not talking. So less number of voice signals reach BTS with less noise.</p>
+            <p><input type="radio" name="q106" value="0">B.With the help of VAD (Voice Activity Detection), mobile identifies conversation and noise to turn off transmission.</p>
+            <p><input type="radio" name="q106" value="0">C.On the opposite end, the receiver produces a noise called Comfort Noise. With out this, DTX makes the opposite person think that the line or call is cut.</p>
+            <p><input type="radio" name="q106" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>107.which technique of gsm architecture tells the mobile to advance it's transmission bursts (data) so that overlap with other bursts may be avoided at channel?</p>
+            <p><input type="radio" name="q107" value="0">A.DTX</p>
+            <p><input type="radio" name="q107" value="1">B.TA - Timing Advance</p>
+            <p><input type="radio" name="q107" value="0">C.Power Control</p>
+            <p><input type="radio" name="q107" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>108.timing advance (ta) deals with</p>
+            <p><input type="radio" name="q108" value="0">A.The distance between the BTS and Mobile</p>
+            <p><input type="radio" name="q108" value="0">B.Time delay of bursts from mobile</p>
+            <p><input type="radio" name="q108" value="0">C.Time advance of bursts from mobile</p>
+            <p><input type="radio" name="q108" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>109.what is oss in a gsm architecture?</p>
+            <p><input type="radio" name="q109" value="0">A.Operation and Support Service</p>
+            <p><input type="radio" name="q109" value="1">B.Operation and Support Subsystem</p>
+            <p><input type="radio" name="q109" value="0">C.Operation and System support</p>
+            <p><input type="radio" name="q109" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>110.choose a correct statement about oss system in gsm architecture.</p>
+            <p><input type="radio" name="q110" value="0">A.OSS helps to access and configure MSC parameters</p>
+            <p><input type="radio" name="q110" value="0">B.OSS helps to configure BSC parameters</p>
+            <p><input type="radio" name="q110" value="0">C.OSS helps to add new BTS into the system</p>
+            <p><input type="radio" name="q110" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>111.radio interface between mobile station and bts is also called _____ .</p>
+            <p><input type="radio" name="q111" value="0">A.Gorilla interface</p>
+            <p><input type="radio" name="q111" value="1">B.Air interface</p>
+            <p><input type="radio" name="q111" value="0">C.Voice interface</p>
+            <p><input type="radio" name="q111" value="0">D.Spectrum interface</p>
+        </div>
+        <div class="question">
+            <p>112.power control feature in a gsm network works on the _______ side.</p>
+            <p><input type="radio" name="q112" value="0">A.Mobile side</p>
+            <p><input type="radio" name="q112" value="0">B.BTS side</p>
+            <p><input type="radio" name="q112" value="1">C.Both Mobile side and BTS side</p>
+            <p><input type="radio" name="q112" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>113.power control feature aims at receiving all bursts of transmission at _______ power level.</p>
+            <p><input type="radio" name="q113" value="0">A.Different</p>
+            <p><input type="radio" name="q113" value="0">B.Variable</p>
+            <p><input type="radio" name="q113" value="1">C.Same</p>
+            <p><input type="radio" name="q113" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>114.discontinuous reception in a gsm network is aimed at saving __________ power.</p>
+            <p><input type="radio" name="q114" value="0">A.BTS</p>
+            <p><input type="radio" name="q114" value="0">B.BSC</p>
+            <p><input type="radio" name="q114" value="1">C.Mobile Station</p>
+            <p><input type="radio" name="q114" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>115.discontinuous reception is implemented with _______ in a gsm network.</p>
+            <p><input type="radio" name="q115" value="0">A.Sideband channel</p>
+            <p><input type="radio" name="q115" value="0">B.Pilot channel</p>
+            <p><input type="radio" name="q115" value="1">C.Paging channel Sub channels</p>
+            <p><input type="radio" name="q115" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>116.what is the problem with multipath traversal of radio signal between a mobile and a bts?</p>
+            <p><input type="radio" name="q116" value="0">A.A copy the first signal arrives at the destination with a different phase</p>
+            <p><input type="radio" name="q116" value="0">B.Arrived signal with two or more variants confuse receiver and cause noise.</p>
+            <p><input type="radio" name="q116" value="0">C.Original signal may be lost or deteriorated</p>
+            <p><input type="radio" name="q116" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>117.what is the solution to multipath traversal of radio signal? use a ______.</p>
+            <p><input type="radio" name="q117" value="0">A.Low pass filter</p>
+            <p><input type="radio" name="q117" value="0">B.High pass filter</p>
+            <p><input type="radio" name="q117" value="1">C.Equalizer or Inverse filter</p>
+            <p><input type="radio" name="q117" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>118.the functions of a msc (mobile services switching center) are _______.</p>
+            <p><input type="radio" name="q118" value="0">A.Call handling and paging</p>
+            <p><input type="radio" name="q118" value="0">B.Inter BSS and Inter MSC handovers</p>
+            <p><input type="radio" name="q118" value="0">C.Acting as a gateway to HLR</p>
+            <p><input type="radio" name="q118" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>119.the functions of an msc are ______.</p>
+            <p><input type="radio" name="q119" value="0">A.Charging the call or billing</p>
+            <p><input type="radio" name="q119" value="0">B.Signalling with outside systems</p>
+            <p><input type="radio" name="q119" value="0">C.Logical radio link control</p>
+            <p><input type="radio" name="q119" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>120.a hlr database contains ________ .</p>
+            <p><input type="radio" name="q120" value="0">A.IMSI and ISDN numbers</p>
+            <p><input type="radio" name="q120" value="0">B.Location info for call routing</p>
+            <p><input type="radio" name="q120" value="0">C.Information about Bearer services and Supplementary services</p>
+            <p><input type="radio" name="q120" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>121.a vlr database contains _____ data.</p>
+            <p><input type="radio" name="q121" value="0">A.ISDN number and Subscriber identity</p>
+            <p><input type="radio" name="q121" value="0">B.Location information to route calls</p>
+            <p><input type="radio" name="q121" value="0">C.Part of HLR data</p>
+            <p><input type="radio" name="q121" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>122.an equipment identity register (eir) contains _____ lists.</p>
+            <p><input type="radio" name="q122" value="0">A.White list or Valid list</p>
+            <p><input type="radio" name="q122" value="0">B.Grey or Monitored list</p>
+            <p><input type="radio" name="q122" value="0">C.Black or Prohibited list</p>
+            <p><input type="radio" name="q122" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>123.an authentication center (auc) generates ________.</p>
+            <p><input type="radio" name="q123" value="0">A.Authentication Keys (Ki)</p>
+            <p><input type="radio" name="q123" value="0">B.Cipher Keys (Kc) for encryption and Decryption</p>
+            <p><input type="radio" name="q123" value="0">C.Security parameters</p>
+            <p><input type="radio" name="q123" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>124.for bss types 1, 4 and 5, speech transcoding unit presents ______ bsc.</p>
+            <p><input type="radio" name="q124" value="1">A.Inside</p>
+            <p><input type="radio" name="q124" value="0">B.Outside</p>
+            <p><input type="radio" name="q124" value="0">C.Can't say</p>
+            <p><input type="radio" name="q124" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>125.in bss types 2, 6 and 7, speech transcoding unit is present ______ bss.</p>
+            <p><input type="radio" name="q125" value="0">A.Internally</p>
+            <p><input type="radio" name="q125" value="1">B.Externally (Co-located with MSC)</p>
+            <p><input type="radio" name="q125" value="0">C.Can't say</p>
+            <p><input type="radio" name="q125" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>126.in bss type 3, trau (transcoder unit) or rate adapter unit is present in _____.</p>
+            <p><input type="radio" name="q126" value="0">A.BSC</p>
+            <p><input type="radio" name="q126" value="1">B.BTS</p>
+            <p><input type="radio" name="q126" value="0">C.MSC</p>
+            <p><input type="radio" name="q126" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>127.transmission bitrate between bsc and msc is ____ .</p>
+            <p><input type="radio" name="q127" value="0">A.8 kbps</p>
+            <p><input type="radio" name="q127" value="0">B.16kbps</p>
+            <p><input type="radio" name="q127" value="0">C.32kpbs</p>
+            <p><input type="radio" name="q127" value="1">D.64kbps</p>
+        </div>
+        <div class="question">
+            <p>128.what is the transmission bitrate between bts and bsc?</p>
+            <p><input type="radio" name="q128" value="0">A.8kbps</p>
+            <p><input type="radio" name="q128" value="1">B.16kbps</p>
+            <p><input type="radio" name="q128" value="0">C.32kbps</p>
+            <p><input type="radio" name="q128" value="0">D.64kbps</p>
+        </div>
+        <div class="question">
+            <p>129.what is the interface between a mobile station and a bts?</p>
+            <p><input type="radio" name="q129" value="0">A.M interface</p>
+            <p><input type="radio" name="q129" value="0">B.A interface</p>
+            <p><input type="radio" name="q129" value="0">C.Abis interface</p>
+            <p><input type="radio" name="q129" value="1">D.U interface</p>
+        </div>
+        <div class="question">
+            <p>130.what is the interface between bts and bsc?</p>
+            <p><input type="radio" name="q130" value="0">A.U interface</p>
+            <p><input type="radio" name="q130" value="0">B.Um interface</p>
+            <p><input type="radio" name="q130" value="1">C.Abis interface</p>
+            <p><input type="radio" name="q130" value="0">D.A interface</p>
+        </div>
+        <div class="question">
+            <p>131.what is the interface between bsc and trau?</p>
+            <p><input type="radio" name="q131" value="1">A.M interface</p>
+            <p><input type="radio" name="q131" value="0">B.A interface</p>
+            <p><input type="radio" name="q131" value="0">C.Abis interface</p>
+            <p><input type="radio" name="q131" value="0">D.C interface</p>
+        </div>
+        <div class="question">
+            <p>132.what is the interface between bsc and msc?</p>
+            <p><input type="radio" name="q132" value="1">A.A interface</p>
+            <p><input type="radio" name="q132" value="0">B.Abis interface</p>
+            <p><input type="radio" name="q132" value="0">C.B interface</p>
+            <p><input type="radio" name="q132" value="0">D.C interface</p>
+        </div>
+        <div class="question">
+            <p>133.what is the interface between msc and vlr?</p>
+            <p><input type="radio" name="q133" value="0">A.A interface</p>
+            <p><input type="radio" name="q133" value="1">B.B interface</p>
+            <p><input type="radio" name="q133" value="0">C.C interface</p>
+            <p><input type="radio" name="q133" value="0">D.D interface</p>
+        </div>
+        <div class="question">
+            <p>134.what is the interface between msc and hlr?</p>
+            <p><input type="radio" name="q134" value="0">A.Abis interface</p>
+            <p><input type="radio" name="q134" value="0">B.A interface</p>
+            <p><input type="radio" name="q134" value="1">C.C interface</p>
+            <p><input type="radio" name="q134" value="0">D.D interface</p>
+        </div>
+        <div class="question">
+            <p>135.what is the interface between vlr and hlr?</p>
+            <p><input type="radio" name="q135" value="0">A.B interface</p>
+            <p><input type="radio" name="q135" value="0">B.C interface</p>
+            <p><input type="radio" name="q135" value="1">C.D interface</p>
+            <p><input type="radio" name="q135" value="0">D.E interface</p>
+        </div>
+        <div class="question">
+            <p>136.what is the interface between two mscs?</p>
+            <p><input type="radio" name="q136" value="0">A.A interface</p>
+            <p><input type="radio" name="q136" value="0">B.C interface</p>
+            <p><input type="radio" name="q136" value="0">C.D interface</p>
+            <p><input type="radio" name="q136" value="1">D.E interface</p>
+        </div>
+        <div class="question">
+            <p>137.what is the interface between msc and eir?</p>
+            <p><input type="radio" name="q137" value="0">A.M interface</p>
+            <p><input type="radio" name="q137" value="0">B.Abis interface</p>
+            <p><input type="radio" name="q137" value="1">C.F interface</p>
+            <p><input type="radio" name="q137" value="0">D.U interface</p>
+        </div>
+        <div class="question">
+            <p>138.what is the interface between one vlr to other msc vlrs?</p>
+            <p><input type="radio" name="q138" value="0">A.Abis interface</p>
+            <p><input type="radio" name="q138" value="0">B.E interface</p>
+            <p><input type="radio" name="q138" value="0">C.F interface</p>
+            <p><input type="radio" name="q138" value="1">D.G interface</p>
+        </div>
+        <div class="question">
+            <p>139.what is the interface between hlr and auc?</p>
+            <p><input type="radio" name="q139" value="0">A.E interface</p>
+            <p><input type="radio" name="q139" value="0">B.F interface</p>
+            <p><input type="radio" name="q139" value="1">C.H interface</p>
+            <p><input type="radio" name="q139" value="0">D.M interface</p>
+        </div>
+        <div class="question">
+            <p>140.what is the interface between msc and gmsc?</p>
+            <p><input type="radio" name="q140" value="0">A.Na</p>
+            <p><input type="radio" name="q140" value="0">B.Nb</p>
+            <p><input type="radio" name="q140" value="1">C.Nc</p>
+            <p><input type="radio" name="q140" value="0">D.Nd</p>
+        </div>
+        <div class="question">
+            <p>141.what is the interface between msc server and mgw which are part of msc?</p>
+            <p><input type="radio" name="q141" value="0">A.Nc</p>
+            <p><input type="radio" name="q141" value="1">B.Mc</p>
+            <p><input type="radio" name="q141" value="0">C.Um</p>
+            <p><input type="radio" name="q141" value="0">D.U</p>
+        </div>
+        <div class="question">
+            <p>142.what is the interface between bsc and sgsn (serving gprs serving node)?</p>
+            <p><input type="radio" name="q142" value="0">A.Ga</p>
+            <p><input type="radio" name="q142" value="1">B.Gb</p>
+            <p><input type="radio" name="q142" value="0">C.Gc</p>
+            <p><input type="radio" name="q142" value="0">D.Gd</p>
+        </div>
+        <div class="question">
+            <p>143.what is the interface between sgsn and internet server?</p>
+            <p><input type="radio" name="q143" value="0">A.Ga</p>
+            <p><input type="radio" name="q143" value="0">B.Gb</p>
+            <p><input type="radio" name="q143" value="0">C.Gc</p>
+            <p><input type="radio" name="q143" value="1">D.Gi</p>
+        </div>
+        <div class="question">
+            <p>144.what is the interface between sgsn and ggsn(gateway gprs serving node)?</p>
+            <p><input type="radio" name="q144" value="0">A.Ga</p>
+            <p><input type="radio" name="q144" value="0">B.Gb</p>
+            <p><input type="radio" name="q144" value="1">C.Gn</p>
+            <p><input type="radio" name="q144" value="0">D.Gi</p>
+        </div>
+        <div class="question">
+            <p>145.what is the interface between ggsn and internet server?</p>
+            <p><input type="radio" name="q145" value="0">A.Ga</p>
+            <p><input type="radio" name="q145" value="0">B.Gn</p>
+            <p><input type="radio" name="q145" value="0">C.Gi</p>
+            <p><input type="radio" name="q145" value="1">D.Gp</p>
+        </div>
+        <div class="question">
+            <p>146.what is the interface between ggsn and hlr?</p>
+            <p><input type="radio" name="q146" value="0">A.Ga</p>
+            <p><input type="radio" name="q146" value="0">B.Gb</p>
+            <p><input type="radio" name="q146" value="1">C.Gc</p>
+            <p><input type="radio" name="q146" value="0">D.Gi</p>
+        </div>
+        <div class="question">
+            <p>147.what is the interface between sgsn and sms-gmsc?</p>
+            <p><input type="radio" name="q147" value="0">A.Ga</p>
+            <p><input type="radio" name="q147" value="0">B.Gb</p>
+            <p><input type="radio" name="q147" value="0">C.Gc</p>
+            <p><input type="radio" name="q147" value="1">D.Gd</p>
+        </div>
+        <div class="question">
+            <p>148.the interfaces gf and sv are between sgsn and _____ .</p>
+            <p><input type="radio" name="q148" value="0">A.Auc</p>
+            <p><input type="radio" name="q148" value="0">B.MSC</p>
+            <p><input type="radio" name="q148" value="1">C.EIR</p>
+            <p><input type="radio" name="q148" value="0">D.VLR</p>
+        </div>
+        <div class="question">
+            <p>149.what is the total number of carrier frequencies that can be formed in a 25mhz band width of either uplink or downlink of gsm?</p>
+            <p><input type="radio" name="q149" value="0">A.128</p>
+            <p><input type="radio" name="q149" value="0">B.126</p>
+            <p><input type="radio" name="q149" value="1">C.124</p>
+            <p><input type="radio" name="q149" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>150.what is the spacing between each carrier frequency to avoid interference and crosstalk?</p>
+            <p><input type="radio" name="q150" value="0">A.100KHz</p>
+            <p><input type="radio" name="q150" value="1">B.200KHz</p>
+            <p><input type="radio" name="q150" value="0">C.128KHz</p>
+            <p><input type="radio" name="q150" value="0">D.256KHz</p>
+        </div>
+        <div class="question">
+            <p>151.in gsm-1800 band, the total number of carrier frequencies are</p>
+            <p><input type="radio" name="q151" value="0">A.124</p>
+            <p><input type="radio" name="q151" value="0">B.248</p>
+            <p><input type="radio" name="q151" value="1">C.374</p>
+            <p><input type="radio" name="q151" value="0">D.448</p>
+        </div>
+        <div class="question">
+            <p>152.each carrier frequency is divided or shared among _______ number of channels.</p>
+            <p><input type="radio" name="q152" value="0">A.4</p>
+            <p><input type="radio" name="q152" value="0">B.6</p>
+            <p><input type="radio" name="q152" value="1">C.8</p>
+            <p><input type="radio" name="q152" value="0">D.10</p>
+        </div>
+        <div class="question">
+            <p>153.in a gsm-900 band, what is the duplex spacing between uplink and downlink channels?</p>
+            <p><input type="radio" name="q153" value="0">A.25MHz</p>
+            <p><input type="radio" name="q153" value="0">B.35MHz</p>
+            <p><input type="radio" name="q153" value="1">C.45MHz</p>
+            <p><input type="radio" name="q153" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>154.in a gsm-1800 band, what is the duplex spacing between downlink and uplink channels?</p>
+            <p><input type="radio" name="q154" value="0">A.75MHz</p>
+            <p><input type="radio" name="q154" value="0">B.85MHz</p>
+            <p><input type="radio" name="q154" value="0">C.95MHz</p>
+            <p><input type="radio" name="q154" value="1">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>155.what is the name of a single transmission burst that lasts for only 0.577ms in a gsm tdma frame?</p>
+            <p><input type="radio" name="q155" value="0">A.Frame</p>
+            <p><input type="radio" name="q155" value="1">B.Channel (or Physical channel)</p>
+            <p><input type="radio" name="q155" value="0">C.Link</p>
+            <p><input type="radio" name="q155" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>156.what is the duration of a gsm tdma frame?</p>
+            <p><input type="radio" name="q156" value="1">A.4.614ms</p>
+            <p><input type="radio" name="q156" value="0">B.5.614ms</p>
+            <p><input type="radio" name="q156" value="0">C.6.614ms</p>
+            <p><input type="radio" name="q156" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>157.what are the types of logical channels in a gsm structure or architecture?</p>
+            <p><input type="radio" name="q157" value="0">A.Traffic channels</p>
+            <p><input type="radio" name="q157" value="0">B.Broadcasting channels</p>
+            <p><input type="radio" name="q157" value="0">C.Common control channels, Dedicated control channels</p>
+            <p><input type="radio" name="q157" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>158.broadcasting is a concept of transferring information from _______ to _______.</p>
+            <p><input type="radio" name="q158" value="0">A.One to one</p>
+            <p><input type="radio" name="q158" value="0">B.Many to one</p>
+            <p><input type="radio" name="q158" value="1">C.One to many</p>
+            <p><input type="radio" name="q158" value="0">D.Many to many</p>
+        </div>
+        <div class="question">
+            <p>159.bcch (broadcast control channel) frequency is also called _________.</p>
+            <p><input type="radio" name="q159" value="0">A.Engine</p>
+            <p><input type="radio" name="q159" value="0">B.Driver</p>
+            <p><input type="radio" name="q159" value="1">C.Pilot</p>
+            <p><input type="radio" name="q159" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>160.majority of the gsm channels work on ______ interface.</p>
+            <p><input type="radio" name="q160" value="0">A.Abis interface</p>
+            <p><input type="radio" name="q160" value="0">B.A interface</p>
+            <p><input type="radio" name="q160" value="1">C.Um interface</p>
+            <p><input type="radio" name="q160" value="0">D.M interface</p>
+        </div>
+        <div class="question">
+            <p>161.the type of information transferred in traffic channel (tch) is ____ .</p>
+            <p><input type="radio" name="q161" value="0">A.Voice</p>
+            <p><input type="radio" name="q161" value="0">B.Data</p>
+            <p><input type="radio" name="q161" value="1">C.Both Voice and Data</p>
+            <p><input type="radio" name="q161" value="0">D.Signalling</p>
+        </div>
+        <div class="question">
+            <p>162.choose a channel that carries signalling information.</p>
+            <p><input type="radio" name="q162" value="0">A.Broadcast Control channel</p>
+            <p><input type="radio" name="q162" value="0">B.Common control channel</p>
+            <p><input type="radio" name="q162" value="0">C.Dedicated control channel</p>
+            <p><input type="radio" name="q162" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>163.what is the other type of information that a tch channel contain or carry?</p>
+            <p><input type="radio" name="q163" value="0">A.Signalling to forward a call</p>
+            <p><input type="radio" name="q163" value="0">B.Short Message Service signalling</p>
+            <p><input type="radio" name="q163" value="1">C.both a and b</p>
+            <p><input type="radio" name="q163" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>164.what is true about a full rate tch channel?</p>
+            <p><input type="radio" name="q164" value="0">A.It carries a speech of 13kbps before encoding</p>
+            <p><input type="radio" name="q164" value="0">B.It carries a total of 22.8kbs information after channel coding</p>
+            <p><input type="radio" name="q164" value="0">C.Data rates supported are 3.6, 6 and 12 kbps respectively.</p>
+            <p><input type="radio" name="q164" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>165.what are the data rates of services available in isdn and other services that can be transmitted in a tch channel?</p>
+            <p><input type="radio" name="q165" value="0">A.2.4kbps</p>
+            <p><input type="radio" name="q165" value="0">B.4.8kbps</p>
+            <p><input type="radio" name="q165" value="0">C.9.6kbps</p>
+            <p><input type="radio" name="q165" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>166.what is the total bitrate after channel coding in a half rate tch channel?</p>
+            <p><input type="radio" name="q166" value="1">A.11.4kbps</p>
+            <p><input type="radio" name="q166" value="0">B.22.8kbps</p>
+            <p><input type="radio" name="q166" value="0">C.34.2kbps</p>
+            <p><input type="radio" name="q166" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>167.what is the speech rate before coding in a half rate tch channel?</p>
+            <p><input type="radio" name="q167" value="0">A.11.4kbps</p>
+            <p><input type="radio" name="q167" value="0">B.22.8kbps</p>
+            <p><input type="radio" name="q167" value="1">C.5.6kbps</p>
+            <p><input type="radio" name="q167" value="0">D.11.2kbps</p>
+        </div>
+        <div class="question">
+            <p>168.possible data rates in a half rate tch channel are _____ .</p>
+            <p><input type="radio" name="q168" value="0">A.3.6kbps</p>
+            <p><input type="radio" name="q168" value="0">B.6kbps</p>
+            <p><input type="radio" name="q168" value="1">C.3.6, 6kbps</p>
+            <p><input type="radio" name="q168" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>169.choose a broadcast channel in gsm architecture?</p>
+            <p><input type="radio" name="q169" value="0">A.BCCH (Broadcast Control Channel)</p>
+            <p><input type="radio" name="q169" value="0">B.FCCH (Frequency Correction Channel)</p>
+            <p><input type="radio" name="q169" value="0">C.SCH (Synchronization Channel), CBCH (Cell Broadcast Channel)</p>
+            <p><input type="radio" name="q169" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>170.what ia true about bcch channel in a gsm structure?</p>
+            <p><input type="radio" name="q170" value="0">A.It is like a BEACON that guides a mobile to attach to a Cell</p>
+            <p><input type="radio" name="q170" value="0">B.It contains Configuration parameters like LAC (Location Area Code), CID (Cell Identity) and Neighbor cell info</p>
+            <p><input type="radio" name="q170" value="0">C.It is the first frequency to be sampled by a Mobile station. If parameters are ok, MT attaches to the Cell.</p>
+            <p><input type="radio" name="q170" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>171.which is the broadcast channel that tells the mt (mobile station) which frequency to use in order to communicate with a bts?</p>
+            <p><input type="radio" name="q171" value="0">A.BCCH</p>
+            <p><input type="radio" name="q171" value="1">B.FCCH</p>
+            <p><input type="radio" name="q171" value="0">C.SCH</p>
+            <p><input type="radio" name="q171" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>172.what is true about a sch channel of gsm architecture?</p>
+            <p><input type="radio" name="q172" value="0">A.It carries Time Synchronization data</p>
+            <p><input type="radio" name="q172" value="0">B.It contains BSIC (Base Station Identity Code)</p>
+            <p><input type="radio" name="q172" value="0">C.It contains TDMA Frame number</p>
+            <p><input type="radio" name="q172" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>173.which is true about a cbch channel of a gsm structure?</p>
+            <p><input type="radio" name="q173" value="0">A.It carries Short Messages</p>
+            <p><input type="radio" name="q173" value="0">B.It carries Service Messages</p>
+            <p><input type="radio" name="q173" value="1">C.It carries both Short Message and Service Messages</p>
+            <p><input type="radio" name="q173" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>174.choose a common control channel below.</p>
+            <p><input type="radio" name="q174" value="0">A.PCH (paging Channel)</p>
+            <p><input type="radio" name="q174" value="0">B.AGCH (Access Grant Channel)</p>
+            <p><input type="radio" name="q174" value="0">C.RACH (Random Access Channel)</p>
+            <p><input type="radio" name="q174" value="1">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>175.what is true about a pch (paging channel) in a gsm network?</p>
+            <p><input type="radio" name="q175" value="0">A.Paging works in a Downlink (BTS to Mobile)</p>
+            <p><input type="radio" name="q175" value="0">B.Paging alerts the MT (Mobile Terminal) about an incoming Call or SMS.</p>
+            <p><input type="radio" name="q175" value="0">C.Paging is a One to One communication initiated by NSS (Network Subsystem)</p>
+            <p><input type="radio" name="q175" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>176.what is the uplink channel used by a mobile to request for a channel?</p>
+            <p><input type="radio" name="q176" value="0">A.PCH</p>
+            <p><input type="radio" name="q176" value="0">B.BCCH</p>
+            <p><input type="radio" name="q176" value="1">C.RACH</p>
+            <p><input type="radio" name="q176" value="0">D.SDCCH</p>
+        </div>
+        <div class="question">
+            <p>177.which is the downlink channel allotted to a mobile after requesting with a rach channel?</p>
+            <p><input type="radio" name="q177" value="1">A.AGH</p>
+            <p><input type="radio" name="q177" value="0">B.PCH</p>
+            <p><input type="radio" name="q177" value="0">C.SDCCH</p>
+            <p><input type="radio" name="q177" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>178.which is a full duplex (both downlink and uplink), point to point dedicated control channel below?</p>
+            <p><input type="radio" name="q178" value="0">A.SACCH (Slow Associated Control Channel)</p>
+            <p><input type="radio" name="q178" value="0">B.FACCH (Fast Associated Control Channel)</p>
+            <p><input type="radio" name="q178" value="0">C.SDCCH (Stand-alone Dedicated Control Channel)</p>
+            <p><input type="radio" name="q178" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>179.which is the dedicated control channel that is used to transmit power control data, timing advance (ta) data and other radio link supervision signalling data?</p>
+            <p><input type="radio" name="q179" value="0">A.TCH</p>
+            <p><input type="radio" name="q179" value="0">B.SDCCH</p>
+            <p><input type="radio" name="q179" value="0">C.FACCH</p>
+            <p><input type="radio" name="q179" value="1">D.SACCH</p>
+        </div>
+        <div class="question">
+            <p>180.state true or false. sacch is used to transmit urgent signalling data like call setup.</p>
+            <p><input type="radio" name="q180" value="0">A.True</p>
+            <p><input type="radio" name="q180" value="1">B.False</p>
+            <p><input type="radio" name="q180" value="0">C.May be True or False</p>
+            <p><input type="radio" name="q180" value="0">D.Can't say</p>
+        </div>
+        <div class="question">
+            <p>181.what are the functions of a facch channel?</p>
+            <p><input type="radio" name="q181" value="0">A.Call Setup</p>
+            <p><input type="radio" name="q181" value="0">B.Call Termination</p>
+            <p><input type="radio" name="q181" value="0">C.Call Handovers</p>
+            <p><input type="radio" name="q181" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>182.if facch signalling data is transmitted over tch instead of traffic data by setting a stealing flag, the process is called</p>
+            <p><input type="radio" name="q182" value="0">A.Overloading</p>
+            <p><input type="radio" name="q182" value="0">B.Burdening</p>
+            <p><input type="radio" name="q182" value="1">C.Preemption</p>
+            <p><input type="radio" name="q182" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>183.what are the functions of the dedicated control channel sdcch?</p>
+            <p><input type="radio" name="q183" value="0">A.Location updates, Equipment validation</p>
+            <p><input type="radio" name="q183" value="0">B.Subscriber authentication, Ciphering initiation</p>
+            <p><input type="radio" name="q183" value="0">C.SMS delivery, Assigning a TCH for call or data</p>
+            <p><input type="radio" name="q183" value="1">D.All the above</p>
+        </div>
+        <div class="question">
+            <p>184.what is the bitrate of sdcch channel?</p>
+            <p><input type="radio" name="q184" value="0">A.0.5kbps</p>
+            <p><input type="radio" name="q184" value="1">B.0.8kbps</p>
+            <p><input type="radio" name="q184" value="0">C.1kbps</p>
+            <p><input type="radio" name="q184" value="0">D.1.2kbps</p>
+        </div>
+        <div class="question">
+            <p>185.ccch (common control channel) channel contains all ________ channels.</p>
+            <p><input type="radio" name="q185" value="0">A.PCH on downlink</p>
+            <p><input type="radio" name="q185" value="0">B.AGCH on downlink</p>
+            <p><input type="radio" name="q185" value="0">C.RACH on uplink</p>
+            <p><input type="radio" name="q185" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>186.the channel bcch is always defined in which time slot?</p>
+            <p><input type="radio" name="q186" value="1">A.Timeslot 0</p>
+            <p><input type="radio" name="q186" value="0">B.Timeslot 1</p>
+            <p><input type="radio" name="q186" value="0">C.Timeslot 4</p>
+            <p><input type="radio" name="q186" value="0">D.Timeslot 8</p>
+        </div>
+        <div class="question">
+            <p>187.if there are two trx in a given sector or cell, bcch is defined on the _______ trx or frequency.</p>
+            <p><input type="radio" name="q187" value="1">A.First</p>
+            <p><input type="radio" name="q187" value="0">B.Second</p>
+            <p><input type="radio" name="q187" value="0">C.First or second</p>
+            <p><input type="radio" name="q187" value="0">D.First and second</p>
+        </div>
+        <div class="question">
+            <p>188.one burst period is also called _____.</p>
+            <p><input type="radio" name="q188" value="1">A.Timeslot</p>
+            <p><input type="radio" name="q188" value="0">B.Group</p>
+            <p><input type="radio" name="q188" value="0">C.Byte</p>
+            <p><input type="radio" name="q188" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>189.how many timeslots are present in a gsm tdma frame whose time duration is 4.615ms?</p>
+            <p><input type="radio" name="q189" value="0">A.4</p>
+            <p><input type="radio" name="q189" value="1">B.8</p>
+            <p><input type="radio" name="q189" value="0">C.16</p>
+            <p><input type="radio" name="q189" value="0">D.32</p>
+        </div>
+        <div class="question">
+            <p>190.what are the tdma multi frames used for tch/h and tch/f ?</p>
+            <p><input type="radio" name="q190" value="0">A.26 TDMA frames</p>
+            <p><input type="radio" name="q190" value="0">B.51 TDMA frames</p>
+            <p><input type="radio" name="q190" value="1">C.26 or 51 TDMA frames</p>
+            <p><input type="radio" name="q190" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>191.a super frame contains _______ tdma frames with all possible combinations of channels.</p>
+            <p><input type="radio" name="q191" value="1">A.51 x 26 TDMA</p>
+            <p><input type="radio" name="q191" value="0">B.51 x 51 TDMA</p>
+            <p><input type="radio" name="q191" value="0">C.1024 x 26TDMA</p>
+            <p><input type="radio" name="q191" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>192.a hyper frame contains ______ tdma frames, which can be used for frequency hopping and ciphering.</p>
+            <p><input type="radio" name="q192" value="0">A.1024 x 26 TDMA</p>
+            <p><input type="radio" name="q192" value="0">B.1024 x 51 TDMA</p>
+            <p><input type="radio" name="q192" value="0">C.2048 x 26 TDMA</p>
+            <p><input type="radio" name="q192" value="1">D.2048 x 51 x 26 TDMA</p>
+        </div>
+        <div class="question">
+            <p>193.what is the duration of a super frame?</p>
+            <p><input type="radio" name="q193" value="0">A.5.12s</p>
+            <p><input type="radio" name="q193" value="1">B.6.12s</p>
+            <p><input type="radio" name="q193" value="0">C.7.12s</p>
+            <p><input type="radio" name="q193" value="0">D.8.12s</p>
+        </div>
+        <div class="question">
+            <p>194.what is the duration of a hyperframe?</p>
+            <p><input type="radio" name="q194" value="0">A.3H 28M 2.2S</p>
+            <p><input type="radio" name="q194" value="0">B.3H 28M 50S</p>
+            <p><input type="radio" name="q194" value="1">C.3H 28M 53.76s</p>
+            <p><input type="radio" name="q194" value="0">D.3.5H</p>
+        </div>
+        <div class="question">
+            <p>195.choose a method of selecting a cell (sector) by a mobile station in a multicellular environment.</p>
+            <p><input type="radio" name="q195" value="0">A.MS maintains a list of BCCH signal levels in descending order</p>
+            <p><input type="radio" name="q195" value="0">B.A good BCCH is chosen and the mobile tunes to that frequency to communicate with the BTS.</p>
+            <p><input type="radio" name="q195" value="0">C.After successful authentication, Mobile attachea to the cell and will be in IDLE mode without using TCH channel.</p>
+            <p><input type="radio" name="q195" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>196.during a phone call, an sms (short message service) is sent on which gsm channel?</p>
+            <p><input type="radio" name="q196" value="0">A.SDCCH</p>
+            <p><input type="radio" name="q196" value="0">B.TCH</p>
+            <p><input type="radio" name="q196" value="1">C.SACCH</p>
+            <p><input type="radio" name="q196" value="0">D.BCCH</p>
+        </div>
+        <div class="question">
+            <p>197.when no call is in progress (idle mode), what is the channel used to send an sms?</p>
+            <p><input type="radio" name="q197" value="0">A.TCH</p>
+            <p><input type="radio" name="q197" value="0">B.BCCH</p>
+            <p><input type="radio" name="q197" value="0">C.SACCH</p>
+            <p><input type="radio" name="q197" value="1">D.SDCCH</p>
+        </div>
+        <div class="question">
+            <p>198.what is the problem with sending a huge number of sms?</p>
+            <p><input type="radio" name="q198" value="0">A.SDCCH channels will be busy.</p>
+            <p><input type="radio" name="q198" value="0">B.So call handling capacity will be reduced.</p>
+            <p><input type="radio" name="q198" value="0">C.Free SDCCH will be less. So TCH allocation for new calls will be slow.</p>
+            <p><input type="radio" name="q198" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>199.what is the length of a single sms in gsm architecture?</p>
+            <p><input type="radio" name="q199" value="0">A.140</p>
+            <p><input type="radio" name="q199" value="0">B.150</p>
+            <p><input type="radio" name="q199" value="1">C.160</p>
+            <p><input type="radio" name="q199" value="0">D.256</p>
+        </div>
+        <div class="question">
+            <p>200.which is true about maximum length of an sms in a gsm network?</p>
+            <p><input type="radio" name="q200" value="0">A.160 7-bit characters</p>
+            <p><input type="radio" name="q200" value="0">B.140 8-bit characters</p>
+            <p><input type="radio" name="q200" value="0">C.70 16-bit characters</p>
+            <p><input type="radio" name="q200" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>201.what is the maximum number of sms that can be sent to a mobile in one minute time?</p>
+            <p><input type="radio" name="q201" value="0">A.1-5</p>
+            <p><input type="radio" name="q201" value="1">B.6-10</p>
+            <p><input type="radio" name="q201" value="0">C.11-15</p>
+            <p><input type="radio" name="q201" value="0">D.15-20</p>
+        </div>
+        <div class="question">
+            <p>202.what are the sms categories?</p>
+            <p><input type="radio" name="q202" value="0">A.Point to Point</p>
+            <p><input type="radio" name="q202" value="0">B.Point to Multipoint</p>
+            <p><input type="radio" name="q202" value="1">C.Both P2P and P2M</p>
+            <p><input type="radio" name="q202" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>203.all sms are stored in which system in a gsm architecture before forwarding to the recipient?</p>
+            <p><input type="radio" name="q203" value="1">A.SC (SMS Center)</p>
+            <p><input type="radio" name="q203" value="0">B.SMS-GMSC</p>
+            <p><input type="radio" name="q203" value="0">C.MSC</p>
+            <p><input type="radio" name="q203" value="0">D.VLR</p>
+        </div>
+        <div class="question">
+            <p>204.to deliver an sms to a mobile station, hlr enquiry is done through which system in gsm network?</p>
+            <p><input type="radio" name="q204" value="1">A.SMS-GMSC</p>
+            <p><input type="radio" name="q204" value="0">B.SC (SMS Center)</p>
+            <p><input type="radio" name="q204" value="0">C.MSC</p>
+            <p><input type="radio" name="q204" value="0">D.VLR</p>
+        </div>
+        <div class="question">
+            <p>205.to deliver an sms to a mobile station, vlr enquiry is done via which system in a gsm network?</p>
+            <p><input type="radio" name="q205" value="0">A.SC (SMS Center)</p>
+            <p><input type="radio" name="q205" value="0">B.SMS-GMSC</p>
+            <p><input type="radio" name="q205" value="1">C.MSC</p>
+            <p><input type="radio" name="q205" value="0">D.HLR</p>
+        </div>
+        <div class="question">
+            <p>206.choose a correct flow of sms from one system to the other in a gsm network.</p>
+            <p><input type="radio" name="q206" value="0">A.SC to SMS-GMSC</p>
+            <p><input type="radio" name="q206" value="0">B.SMS-GMSC to MSC</p>
+            <p><input type="radio" name="q206" value="0">C.MSC to MS ( via BSC and BTS)</p>
+            <p><input type="radio" name="q206" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>207.what is the data rate or speed offered by a gprs connection?</p>
+            <p><input type="radio" name="q207" value="1">A.56-115kbps</p>
+            <p><input type="radio" name="q207" value="0">B.9-256kbps</p>
+            <p><input type="radio" name="q207" value="0">C.64-128kbps</p>
+            <p><input type="radio" name="q207" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>208.gprs services belong to which generation?</p>
+            <p><input type="radio" name="q208" value="0">A.1G</p>
+            <p><input type="radio" name="q208" value="1">B.2G</p>
+            <p><input type="radio" name="q208" value="0">C.3G</p>
+            <p><input type="radio" name="q208" value="0">D.4G</p>
+        </div>
+        <div class="question">
+            <p>209.choose a correct abbreviation below.</p>
+            <p><input type="radio" name="q209" value="0">A.SGSN - Serving GPRS Support Node</p>
+            <p><input type="radio" name="q209" value="0">B.GGSN - Gateway GPRS Support Node</p>
+            <p><input type="radio" name="q209" value="0">C.IP - Internet Protocol</p>
+            <p><input type="radio" name="q209" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>210.gprs is a connection oriented service. true/false?</p>
+            <p><input type="radio" name="q210" value="1">A.False</p>
+            <p><input type="radio" name="q210" value="0">B.True</p>
+            <p><input type="radio" name="q210" value="0">C.May be True or False</p>
+            <p><input type="radio" name="q210" value="0">D.Can't say</p>
+        </div>
+        <div class="question">
+            <p>211.gprs is a circuit switched data (csd) service. true/false?</p>
+            <p><input type="radio" name="q211" value="1">A.False</p>
+            <p><input type="radio" name="q211" value="0">B.True</p>
+            <p><input type="radio" name="q211" value="0">C.May be True or False</p>
+            <p><input type="radio" name="q211" value="0">D.Can't say</p>
+        </div>
+        <div class="question">
+            <p>212.gprs uses which unused channels for transportation of data in general?</p>
+            <p><input type="radio" name="q212" value="0">A.SDCCH</p>
+            <p><input type="radio" name="q212" value="0">B.BCCH</p>
+            <p><input type="radio" name="q212" value="1">C.TCH</p>
+            <p><input type="radio" name="q212" value="0">D.SCH</p>
+        </div>
+        <div class="question">
+            <p>213.type-a mobile station supports ________.</p>
+            <p><input type="radio" name="q213" value="0">A.Only Speech</p>
+            <p><input type="radio" name="q213" value="0">B.Only Data</p>
+            <p><input type="radio" name="q213" value="1">C.Speech and Data Simultaneously</p>
+            <p><input type="radio" name="q213" value="0">D.Speech or Data one at a time.</p>
+        </div>
+        <div class="question">
+            <p>214.type-b mobile station supports _______.</p>
+            <p><input type="radio" name="q214" value="0">A.Speech only</p>
+            <p><input type="radio" name="q214" value="0">B.GPRS only</p>
+            <p><input type="radio" name="q214" value="1">C.GPRS or Speech One at a time</p>
+            <p><input type="radio" name="q214" value="0">D.GPRS and Speech simultaneously</p>
+        </div>
+        <div class="question">
+            <p>215.type-c mobile station supports _______.</p>
+            <p><input type="radio" name="q215" value="0">A.Speech only</p>
+            <p><input type="radio" name="q215" value="1">B.Data only</p>
+            <p><input type="radio" name="q215" value="0">C.Speech and Data simultaneously</p>
+            <p><input type="radio" name="q215" value="0">D.Speech or Data automatically</p>
+        </div>
+        <div class="question">
+            <p>216.what is the abbreviation of edge?</p>
+            <p><input type="radio" name="q216" value="0">A.Enhanced Digital Generation Gap</p>
+            <p><input type="radio" name="q216" value="1">B.Enhanced Data rate for GSM Evolution</p>
+            <p><input type="radio" name="q216" value="0">C.Encryption Data rate for GSM Evolution</p>
+            <p><input type="radio" name="q216" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>217.what is the maximum speed offered by an edge connection?</p>
+            <p><input type="radio" name="q217" value="0">A.64kbps</p>
+            <p><input type="radio" name="q217" value="0">B.128kbps</p>
+            <p><input type="radio" name="q217" value="0">C.256kbps</p>
+            <p><input type="radio" name="q217" value="1">D.236 kbps</p>
+        </div>
+        <div class="question">
+            <p>218.an edge connection is ______?</p>
+            <p><input type="radio" name="q218" value="0">A.CS data</p>
+            <p><input type="radio" name="q218" value="0">B.PS data</p>
+            <p><input type="radio" name="q218" value="1">C.CS and PS data</p>
+            <p><input type="radio" name="q218" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>219.a pcu separates packet switched and circuit switched traffic and passes psd to _______.</p>
+            <p><input type="radio" name="q219" value="0">A.MSS</p>
+            <p><input type="radio" name="q219" value="1">B.SGSN</p>
+            <p><input type="radio" name="q219" value="0">C.GGSN</p>
+            <p><input type="radio" name="q219" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>220.in a gprs network, sgsn is the equivalent of ______ system in gsm.</p>
+            <p><input type="radio" name="q220" value="0">A.BSC</p>
+            <p><input type="radio" name="q220" value="1">B.MSC</p>
+            <p><input type="radio" name="q220" value="0">C.VLR</p>
+            <p><input type="radio" name="q220" value="0">D.GMSC</p>
+        </div>
+        <div class="question">
+            <p>221.what are the functions of a ccu?</p>
+            <p><input type="radio" name="q221" value="0">A.Power Control</p>
+            <p><input type="radio" name="q221" value="0">B.Timing Advance</p>
+            <p><input type="radio" name="q221" value="0">C.Coding algorithms</p>
+            <p><input type="radio" name="q221" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>222.gprs roaming from one sgsn to another sgsn is offered by</p>
+            <p><input type="radio" name="q222" value="0">A.GMSC</p>
+            <p><input type="radio" name="q222" value="1">B.GGSN</p>
+            <p><input type="radio" name="q222" value="0">C.HLR</p>
+            <p><input type="radio" name="q222" value="0">D.VLR</p>
+        </div>
+        <div class="question">
+            <p>223.which is the system in gprs that connects to external networks using gtp?</p>
+            <p><input type="radio" name="q223" value="0">A.SGSN</p>
+            <p><input type="radio" name="q223" value="0">B.HLR</p>
+            <p><input type="radio" name="q223" value="1">C.GGSN</p>
+            <p><input type="radio" name="q223" value="0">D.GMSC</p>
+        </div>
+        <div class="question">
+            <p>224.what are the functions of sgsn in a gprs architecture?</p>
+            <p><input type="radio" name="q224" value="0">A.Authentication, Authorization, Ciphering</p>
+            <p><input type="radio" name="q224" value="0">B.GTP tunneling to GGSN, Charging (Billing), Session management</p>
+            <p><input type="radio" name="q224" value="0">C.Mobility manage, interaction with HLR, MSC/VLR, NMS interface</p>
+            <p><input type="radio" name="q224" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>225.what are the functions of ggsn of a gprs network?</p>
+            <p><input type="radio" name="q225" value="0">A.Charging (Billing), Filter user traffic</p>
+            <p><input type="radio" name="q225" value="0">B.Routing mobile originated traffic, GTP Tunneling to SGSN</p>
+            <p><input type="radio" name="q225" value="0">C.Interface external networks</p>
+            <p><input type="radio" name="q225" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>226.a dns (domain name server) converts host name or website name to _____?</p>
+            <p><input type="radio" name="q226" value="0">A.Packets</p>
+            <p><input type="radio" name="q226" value="0">B.Bytes</p>
+            <p><input type="radio" name="q226" value="1">C.IP address</p>
+            <p><input type="radio" name="q226" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>227.a bg(border gateway) connects to ______ using tunneling.</p>
+            <p><input type="radio" name="q227" value="0">A.Same operator's GPRS network</p>
+            <p><input type="radio" name="q227" value="1">B.Different operator's GPRS network</p>
+            <p><input type="radio" name="q227" value="0">C.Same or different operator GPRS N/W</p>
+            <p><input type="radio" name="q227" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>228.which system in a gprs architecture collects all charging (billing) records for final processing?</p>
+            <p><input type="radio" name="q228" value="0">A.SGSN</p>
+            <p><input type="radio" name="q228" value="0">B.GGSN</p>
+            <p><input type="radio" name="q228" value="1">C.CH (Charging Gateway)</p>
+            <p><input type="radio" name="q228" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>229.a gprs network contains firewalls to _______</p>
+            <p><input type="radio" name="q229" value="0">A.Hack phones</p>
+            <p><input type="radio" name="q229" value="0">B.Intercept phones</p>
+            <p><input type="radio" name="q229" value="1">C.Protection from Virus</p>
+            <p><input type="radio" name="q229" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>230.an lig(legal interception gateway) in a gprs network provides ________ .</p>
+            <p><input type="radio" name="q230" value="0">A.Parallel access to law agencies</p>
+            <p><input type="radio" name="q230" value="0">B.Eavesdrop user sessions</p>
+            <p><input type="radio" name="q230" value="0">C.Sample packets to get information</p>
+            <p><input type="radio" name="q230" value="1">D.All of the above</p>
+        </div>
+        <div class="question">
+            <p>231.a gprs network is a part of ____ in gsm network.</p>
+            <p><input type="radio" name="q231" value="0">A.BTS</p>
+            <p><input type="radio" name="q231" value="0">B.BSS</p>
+            <p><input type="radio" name="q231" value="1">C.NSS</p>
+            <p><input type="radio" name="q231" value="0">D.VLR</p>
+        </div>
+        <div class="question">
+            <p>232.which is the organization providing standards for gprs network?</p>
+            <p><input type="radio" name="q232" value="0">A.ANSI</p>
+            <p><input type="radio" name="q232" value="0">B.ETSI</p>
+            <p><input type="radio" name="q232" value="1">C.3GPP</p>
+            <p><input type="radio" name="q232" value="0">D.UMTS</p>
+        </div>
+        <div class="question">
+            <p>233.which is the main protocol that transfers packets in a gprs core network?</p>
+            <p><input type="radio" name="q233" value="1">A.GTP</p>
+            <p><input type="radio" name="q233" value="0">B.SSTP</p>
+            <p><input type="radio" name="q233" value="0">C.SCTP</p>
+            <p><input type="radio" name="q233" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>234.a gprs network works same in _____.</p>
+            <p><input type="radio" name="q234" value="0">A.2G</p>
+            <p><input type="radio" name="q234" value="0">B.3G</p>
+            <p><input type="radio" name="q234" value="1">C.2G and /or 3G</p>
+            <p><input type="radio" name="q234" value="0">D.4G</p>
+        </div>
+        <div class="question">
+            <p>235.what is the interface between bsc and sgsn in a gprs network structure?</p>
+            <p><input type="radio" name="q235" value="0">A.Ga</p>
+            <p><input type="radio" name="q235" value="1">B.Gb</p>
+            <p><input type="radio" name="q235" value="0">C.Gc</p>
+            <p><input type="radio" name="q235" value="0">D.Gd</p>
+        </div>
+        <div class="question">
+            <p>236.what is the interface betalen sgsn and ggsn in a gprs network?</p>
+            <p><input type="radio" name="q236" value="0">A.Gs</p>
+            <p><input type="radio" name="q236" value="1">B.Gn</p>
+            <p><input type="radio" name="q236" value="0">C.Ga</p>
+            <p><input type="radio" name="q236" value="0">D.Gb</p>
+        </div>
+        <div class="question">
+            <p>237.what is the interface between ggsn and inter-plmn gprs network?</p>
+            <p><input type="radio" name="q237" value="0">A.Ga</p>
+            <p><input type="radio" name="q237" value="0">B.Gs</p>
+            <p><input type="radio" name="q237" value="0">C.Gi</p>
+            <p><input type="radio" name="q237" value="1">D.Gp</p>
+        </div>
+        <div class="question">
+            <p>238.what is the interface between ggsn and external packet network( internet ) in a gprs structure?</p>
+            <p><input type="radio" name="q238" value="0">A.Gs</p>
+            <p><input type="radio" name="q238" value="0">B.Gn</p>
+            <p><input type="radio" name="q238" value="1">C.Gi</p>
+            <p><input type="radio" name="q238" value="0">D.Gp</p>
+        </div>
+        <div class="question">
+            <p>239.what is the interface between sgsn and msc/vlr in a gprs network?</p>
+            <p><input type="radio" name="q239" value="1">A.Gs</p>
+            <p><input type="radio" name="q239" value="0">B.Gn</p>
+            <p><input type="radio" name="q239" value="0">C.Ga</p>
+            <p><input type="radio" name="q239" value="0">D.Gb</p>
+        </div>
+        <div class="question">
+            <p>240.what is the interface between sgsn and hlr in a gprs network structure?</p>
+            <p><input type="radio" name="q240" value="0">A.Gs</p>
+            <p><input type="radio" name="q240" value="0">B.Gn</p>
+            <p><input type="radio" name="q240" value="1">C.Gr</p>
+            <p><input type="radio" name="q240" value="0">D.Gf</p>
+        </div>
+        <div class="question">
+            <p>241.what is the interface between sgsn and eir in a gprs network?</p>
+            <p><input type="radio" name="q241" value="0">A.Gr</p>
+            <p><input type="radio" name="q241" value="1">B.Gf</p>
+            <p><input type="radio" name="q241" value="0">C.Gd</p>
+            <p><input type="radio" name="q241" value="0">D.Ga</p>
+        </div>
+        <div class="question">
+            <p>242.what is the interface between sgsn and sms-gmsc in a gprs network?</p>
+            <p><input type="radio" name="q242" value="0">A.Gf</p>
+            <p><input type="radio" name="q242" value="0">B.Gr</p>
+            <p><input type="radio" name="q242" value="1">C.Gd</p>
+            <p><input type="radio" name="q242" value="0">D.Gs</p>
+        </div>
+        <div class="question">
+            <p>243.what is the interface between a mobile station and a bts in a gprs network?</p>
+            <p><input type="radio" name="q243" value="0">A.Ui</p>
+            <p><input type="radio" name="q243" value="1">B.Um</p>
+            <p><input type="radio" name="q243" value="0">C.Uu</p>
+            <p><input type="radio" name="q243" value="0">D.Uk</p>
+        </div>
+        <div class="question">
+            <p>244.what is the interface between cg(charging gateway) and ggsn in a gprs network?</p>
+            <p><input type="radio" name="q244" value="1">A.Ga</p>
+            <p><input type="radio" name="q244" value="0">B.Gb</p>
+            <p><input type="radio" name="q244" value="0">C.Gc</p>
+            <p><input type="radio" name="q244" value="0">D.Gd</p>
+        </div>
+        <div class="question">
+            <p>245.what is the interface between ggsn and hlr in a gprs network?</p>
+            <p><input type="radio" name="q245" value="0">A.Ga</p>
+            <p><input type="radio" name="q245" value="0">B.Gb</p>
+            <p><input type="radio" name="q245" value="1">C.Gc</p>
+            <p><input type="radio" name="q245" value="0">D.Gd</p>
+        </div>
+        <div class="question">
+            <p>246.the gb interface in a grps network uses which protocol?</p>
+            <p><input type="radio" name="q246" value="0">A.Frame Relay</p>
+            <p><input type="radio" name="q246" value="0">B.IP</p>
+            <p><input type="radio" name="q246" value="1">C.Frame Realy or IP protocol</p>
+            <p><input type="radio" name="q246" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>247.the gd interface in a gprs network uses which protocol?</p>
+            <p><input type="radio" name="q247" value="0">A.MAP 1 (MAP- Message Application Protocol)</p>
+            <p><input type="radio" name="q247" value="0">B.MAP 2</p>
+            <p><input type="radio" name="q247" value="0">C.MAP 3</p>
+            <p><input type="radio" name="q247" value="1">D.All MAP1, MAP2 and MAP3</p>
+        </div>
+        <div class="question">
+            <p>248.the ge interface between sgsn and service control point(scp) uses which protocol?</p>
+            <p><input type="radio" name="q248" value="0">A.MAP 1</p>
+            <p><input type="radio" name="q248" value="0">B.IP</p>
+            <p><input type="radio" name="q248" value="1">C.CAP (Camel Application Protocol)</p>
+            <p><input type="radio" name="q248" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>249.the gr interface in a grps network uses which protocol?</p>
+            <p><input type="radio" name="q249" value="0">A.MAP1</p>
+            <p><input type="radio" name="q249" value="0">B.MAP2</p>
+            <p><input type="radio" name="q249" value="1">C.MAP3</p>
+            <p><input type="radio" name="q249" value="0">D.None of the above</p>
+        </div>
+        <div class="question">
+            <p>250.the ga interface in a grps network uses which protocol?</p>
+            <p><input type="radio" name="q250" value="0">A.MAP</p>
+            <p><input type="radio" name="q250" value="0">B.CAP</p>
+            <p><input type="radio" name="q250" value="0">C.Frame Relay</p>
+            <p><input type="radio" name="q250" value="1">D.GTP (GPRS Tunneling Protocol)</p>
+        </div>
+        <div class="question">
+            <p>251.in a 1g network, the type of communication between tower ot bts and switching center is ________</p>
+            <p><input type="radio" name="q251" value="0">A.Analog</p>
+            <p><input type="radio" name="q251" value="1">B.Digital</p>
+            <p><input type="radio" name="q251" value="0">C.Discrete</p>
+            <p><input type="radio" name="q251" value="0">D.Diminished</p>
+        </div>
+    </form>
+    <script>
+
+        ans = document.getElementsByTagName('input')
+        function show_answer(){
+            for (var i = 0; i < ans.length; i++){
+                if (ans[i].value == 1){
+                    ans[i].parentElement.style.backgroundColor = '#253d52';
+                }
+            };
+        }
+    </script>
+</body>
+</html>
