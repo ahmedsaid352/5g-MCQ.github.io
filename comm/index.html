@@ -58,11 +58,14 @@
             
         }
         img{
-            width: 100%;
+            /*width: 100%;*/
             background-color: #fff;
             text-align: center;
             margin: 0;
             border-radius: 10px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
         }
         label{
             color: #333;
@@ -154,6 +157,7 @@
         margin: 0;
         }
     </style>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
 </head>
 <body onload="show_answer()">
     <h1>Digital comm MCQs</h1>
@@ -162,7 +166,8 @@
     <form name="quiz" id="quiz" action="/result" >
         <div class="question">
             <p>1.Consider the two 8-point QAM signal constellations shown in the given figures. The minimum distance between adjacent points is 2A. Assuming that all signal points are equally probable, the ratio of average transmitted power in Constellation I to Constellation II is:
-        
+			<br>
+			<img src="img/q1.png"/>
         </p>
             <p><input type="radio" name="q1" value="1">A.4 ∶ 3</p>
             <p><input type="radio" name="q1" value="0">B.2 ∶ 1</p>
@@ -241,7 +246,7 @@
             <p><input type="radio" name="q11" value="0">D.QPSK and FSK</p>
         </div>
         <div class="question">
-            <p>12.Consider a binary transmission system with the symbol waveforms s1(t) = A cos(ωct), s2(t) = - A cos(ωct). This modulation format is termed as</p>
+            <p>12.Consider a binary transmission system with the symbol waveforms s<sub>1</sub>(t) = A cos(ω<sub>c</sub>t), s<sub>2</sub>(t) = - A cos(ω<sub>c</sub>t). This modulation format is termed as</p>
             <p><input type="radio" name="q12" value="0">A.Quadrature Amplitude Modulation</p>
             <p><input type="radio" name="q12" value="0">B.Frequency Shift Keying</p>
             <p><input type="radio" name="q12" value="1">C.Phase Shift Keying</p>
@@ -369,8 +374,8 @@
         </div>
         <div class="question">
             <p>29.To avoid slope overload error in delta modulation, the maximum amplitude of the input signal is</p>
-            <p><input type="radio" name="q29" value="0">A.A ≤ 2πfm</p>
-            <p><input type="radio" name="q29" value="0">B.A ≤ cos 2πfm</p>
+            <p><input type="radio" name="q29" value="0">A.A ≤ 2πf<sub>m</sub></p>
+            <p><input type="radio" name="q29" value="0">B.A ≤ cos 2πf<sub>m</sub></p>
             <p><input type="radio" name="q29" value="0">C.\(A \le \frac{{2\pi {f_m}}}{{{\rm{\Delta }}{f_s}}}\)</p>
             <p><input type="radio" name="q29" value="1">D.\(A \le \frac{{{\rm{\Delta }}{f_s}}}{{2\pi {f_m}}}\)</p>
         </div>
@@ -547,23 +552,25 @@
             <p><input type="radio" name="q52" value="0">D.30 km</p>
         </div>
         <div class="question">
-            <p>53.To increase the rate of communication by log2M in M-array communication, the power requirement increased by</p>
-            <p><input type="radio" name="q53" value="0">A.2M</p>
-            <p><input type="radio" name="q53" value="1">B.M2</p>
-            <p><input type="radio" name="q53" value="0">C.MM</p>
+            <p>53.To increase the rate of communication by log<sub>2</sub>M in M-array communication, the power requirement increased by</p>
+            <p><input type="radio" name="q53" value="0">A.2<sup>M</sup></p>
+            <p><input type="radio" name="q53" value="1">B.M<sup>2</sup></p>
+            <p><input type="radio" name="q53" value="0">C.M<sup>M</sup></p>
             <p><input type="radio" name="q53" value="0">D.2M</p>
         </div>
         <div class="question">
-            <p>54.What is the relation between bandwidth B of BPSK signal and the bandwidth Bm of M-ary PSK signal, for a given data rate?</p>
-            <p><input type="radio" name="q54" value="0">A.Bm = MB</p>
-            <p><input type="radio" name="q54" value="0">B.Bm = B log2 M</p>
-            <p><input type="radio" name="q54" value="1">C.B = Bm log2 M</p>
-            <p><input type="radio" name="q54" value="0">D.B = M⋅Bm</p>
+            <p>54.What is the relation between bandwidth B of BPSK signal and the bandwidth B<Sub>m</sub> of M-ary PSK signal, for a given data rate?</p>
+            <p><input type="radio" name="q54" value="0">A.B<Sub>m</sub> = MB</p>
+            <p><input type="radio" name="q54" value="0">B.B<Sub>m</sub> = B log<sub>2</sub> M</p>
+            <p><input type="radio" name="q54" value="1">C.B = B<Sub>m</sub> log<sub>2</sub> M</p>
+            <p><input type="radio" name="q54" value="0">D.B = M B<Sub>m</sub></p>
         </div>
         <div class="question">
             <p>55.Identify the modulation schemes for the shown signal constellation diagrams
-        
+					
         </p>
+			<br>
+			<img src="img/q55.png" />
             <p><input type="radio" name="q55" value="0">A.(a)-QPSK (b)-BPSK (c)-QAM</p>
             <p><input type="radio" name="q55" value="0">B.(a)-QPSK (b)-OQPSK (c)-MSK</p>
             <p><input type="radio" name="q55" value="1">C.(a)-OQPSK (b)-QAM (c)-QPSK</p>
@@ -703,6 +710,7 @@
             <p><input type="radio" name="q74" value="0">C.quadrature null effect, equalizer</p>
             <p><input type="radio" name="q74" value="0">D.aperture effect, low noise amplifier</p>
         </div>
+		<!--
         <div class="question">
             <p>75.Consider a binary transmission of bits 0 and 1 with equal probability. Bits are transmitted in a noisy channel and channel noise is additive in nature. The received signal is random in nature with conditional probability density function for each transmitted bit 0 and 1, respectively, as
         fr/0(x) = 1 − |x||x| < 1
@@ -713,6 +721,17 @@
             <p><input type="radio" name="q75" value="0">B.\(\frac{1}{2}\)</p>
             <p><input type="radio" name="q75" value="0">C.\(\frac{1}{8}\)</p>
             <p><input type="radio" name="q75" value="1">D.\(\frac{1}{4}\)</p>
+        </div>
+		-->
+		<div class="question">
+            <p>75.Bits 1 and 0 are transmitted with equal probability. At the receiver, the probability density function of the respective received signals for both bits are as shown below:
+        </p>
+		<br>
+			<img src="img/q75.png" />
+            <p><input type="radio" name="q75" value="0">A.\(\frac{1}{2}\)</p>
+            <p><input type="radio" name="q75" value="1">B.\(\frac{4}{5}\)</p>
+            <p><input type="radio" name="q75" value="0">C.1</p>
+            <p><input type="radio" name="q75" value="0">D.\(\frac{3}{2}\)</p>
         </div>
         <div class="question">
             <p>76.The amplitude of a random signal is uniformly distributed between –5V and 5V. If the signal to quantization noise ratio required in uniformly quantizing the signal is 43.5dB, the step size of the quantization is approximately -</p>
@@ -794,10 +813,10 @@
         </div>
         <div class="question">
             <p>87.To transmit N signals each band limited to fm Hz by time division multiplexing will require a minimum bandwidth of </p>
-            <p><input type="radio" name="q87" value="0">A.fm</p>
-            <p><input type="radio" name="q87" value="0">B.2fm</p>
-            <p><input type="radio" name="q87" value="1">C.N fm</p>
-            <p><input type="radio" name="q87" value="0">D.fm/N</p>
+            <p><input type="radio" name="q87" value="0">A.f<sub>m</sub></p>
+            <p><input type="radio" name="q87" value="0">B.2f<sub>m</sub></p>
+            <p><input type="radio" name="q87" value="1">C.N f<sub>m</sub></p>
+            <p><input type="radio" name="q87" value="0">D.f<sub>m</sub>/N</p>
         </div>
         <div class="question">
             <p>88.________ is mostly preferred for telegraphy.
