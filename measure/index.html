@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE | 2023</title>
+    <style>
+        p{
+            font-size: 20px;
+            color: #dbe2e8;
+            background-color: #1f2932;
+        }
+        body{
+            background-color: #1f2932;
+        }
+        .question{
+            border: 1px solid #dbe2e8;
+            border-radius: 10px;
+            margin: 20px auto;
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 55px;
+            font-size: 40px;
+            font-family: tahoma,arial;
+            color: #dbe2e8;
+        }
+        #btn{
+            display: none;
+            margin-top: 32px;
+            width: 100%;
+            line-height: 50px;
+            font-family: inherit;
+            background: #00ad5f;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            text-transform: capitalize;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+        #res{
+            font-size: larger;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+        #stdname{
+            text-align: center;
+            width: 50%;
+            height: 30px;
+            border-radius: 10px;
+            
+        }
+        img{
+            width: 100%;
+            background-color: #fff;
+            text-align: center;
+            margin: 0;
+            border-radius: 10px;
+        }
+        label{
+            color: #333;
+        }
+        #confirm{
+            display: block;
+            margin-top: 32px;
+            width: 100%;
+            line-height: 50px;
+            font-family: inherit;
+            background: #37b5a9;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            text-transform: capitalize;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        input:checked + .slider {
+        background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+        border-radius: 34px;
+        }
+
+        .slider.round:before {
+        border-radius: 50%;
+
+        }
+    </style>
+    <script type="text/javascript">
+        function disableBack() { window.history.forward(); }
+        setTimeout("disableBack()", 0);
+        window.onunload = function () { null };
+    </script>
+</head>
+<body>
+    <h1>Measure MCQs</h1>
+    <div style="text-align: -webkit-right;">
+        <p style="margin-right: 10px;">Ans</p>
+        <label class="switch">
+            <input id="show_ans" type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    <div id="res"></div>
+    
+    <form name="quiz" id="quiz">
+        <div class="question">
+            <p>1.Liquid crystal displays (LCDs) are widely used in a range of electronic systems. Which of the following describes the construction of such a display?</p>
+            <label for="q1a"><input id="q1a" type="radio" name="q1" value="0">A.Two sheets of conducting material separated by a layer of insulating dielectric.</label><br>
+            <label for="q1b"><input id="q1b" type="radio" name="q1" value="1">B.Two sheets of polarized glass with a thin layer of oily material sandwiched between them.</label><br>
+            <label for="q1c"><input id="q1c" type="radio" name="q1" value="0">C.a pn junction formed using materials such as gallium arsenide or gallium phosphide.</label><br>
+            <label for="q1d"><input id="q1d" type="radio" name="q1" value="0">D.None of the above.</label><br>
+        </div>
+        <div class="question">
+            <p>2.Active matrix display uses  ……   as a subpixel controller.</p>
+            <label for="q2a"><input id="q2a" type="radio" name="q2" value="0">A.Chemical field-effect transistor</label><br>
+            <label for="q2b"><input id="q2b" type="radio" name="q2" value="0">B.Diffusion transistor</label><br>
+            <label for="q2c"><input id="q2c" type="radio" name="q2" value="1">C.Thin film transistor</label><br>
+            <label for="q2d"><input id="q2d" type="radio" name="q2" value="0">D.Spin transistor</label><br>
+        </div>
+        <div class="question">
+            <p>3.The optical properties of liquid crystals depend on the direction of</p>
+            <label for="q3a"><input id="q3a" type="radio" name="q3" value="0">A. Air</label><br>
+            <label for="q3b"><input id="q3b" type="radio" name="q3" value="0">B.Solid</label><br>
+            <label for="q3c"><input id="q3c" type="radio" name="q3" value="1">C.Light</label><br>
+            <label for="q3d"><input id="q3d" type="radio" name="q3" value="0">D.Water</label><br>
+        </div>
+        <div class="question">
+            <p>4.LCDs operate from a frequency ranges from</p>
+            <label for="q4a"><input id="q4a" type="radio" name="q4" value="0">A.10Hz to 60Hz</label><br>
+            <label for="q4b"><input id="q4b" type="radio" name="q4" value="0">B.50Hz to 70Hz</label><br>
+            <label for="q4c"><input id="q4c" type="radio" name="q4" value="1">C.30Hz to 60Hz</label><br>
+            <label for="q4d"><input id="q4d" type="radio" name="q4" value="0">D.None of the Mentioned</label><br>
+        </div>
+        <div class="question">
+            <p>5.LCDs operate from a voltage ranges from</p>
+            <label for="q5a"><input id="q5a" type="radio" name="q5" value="1">A. 3 to 15V</label><br>
+            <label for="q5b"><input id="q5b" type="radio" name="q5" value="0">B.10 to 15V</label><br>
+            <label for="q5c"><input id="q5c" type="radio" name="q5" value="0">C.10V</label><br>
+            <label for="q5d"><input id="q5d" type="radio" name="q5" value="0">D.5V</label><br>
+        </div>
+        <div class="question">
+            <p>6.By which properties, the orientation of molecules in a layer of liquid crystals can be changed?</p>
+            <label for="q6a"><input id="q6a" type="radio" name="q6" value="0">A.Magnetic field</label><br>
+            <label for="q6b"><input id="q6b" type="radio" name="q6" value="0">B.Electric field</label><br>
+            <label for="q6c"><input id="q6c" type="radio" name="q6" value="1">C.Electromagnetic field</label><br>
+            <label for="q6d"><input id="q6d" type="radio" name="q6" value="0">D.None of the Mentioned</label><br>
+        </div>
+        <div class="question">
+            <p>7.Disadvantage of LCD </p>
+            <label for="q7a"><input id="q7a" type="radio" name="q7" value="0">A.high cost</label><br>
+            <label for="q7b"><input id="q7b" type="radio" name="q7" value="1">B.Response time is very low</label><br>
+            <label for="q7c"><input id="q7c" type="radio" name="q7" value="0">C.Provide excellent contrast</label><br>
+            <label for="q7d"><input id="q7d" type="radio" name="q7" value="0">D.None of them</label><br>
+        </div>
+        <div class="question">
+            <p>8.The LCD show the rectangle as black area when there  is no current.</p>
+            <label for="q8a"><input id="q8a" type="radio" name="q8" value="0">A.True</label><br>
+            <label for="q8b"><input id="q8b" type="radio" name="q8" value="1">B.False</label><br>
+            <label for="q8c"><input id="q8c" type="radio" name="q8" value="0">C.nan</label><br>
+            <label for="q8d"><input id="q8d" type="radio" name="q8" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>9.Light can be polarized.</p>
+            <label for="q9a"><input id="q9a" type="radio" name="q9" value="1">A.True</label><br>
+            <label for="q9b"><input id="q9b" type="radio" name="q9" value="0">B.False</label><br>
+            <label for="q9c"><input id="q9c" type="radio" name="q9" value="0">C.nan</label><br>
+            <label for="q9d"><input id="q9d" type="radio" name="q9" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>10.The extent of the change in polarization depends on the intensity of an applied electric field.</p>
+            <label for="q10a"><input id="q10a" type="radio" name="q10" value="1">A.True</label><br>
+            <label for="q10b"><input id="q10b" type="radio" name="q10" value="0">B.False</label><br>
+            <label for="q10c"><input id="q10c" type="radio" name="q10" value="0">C.nan</label><br>
+            <label for="q10d"><input id="q10d" type="radio" name="q10" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>11.LCD has better image quality than LED.</p>
+            <label for="q11a"><input id="q11a" type="radio" name="q11" value="0">A.True</label><br>
+            <label for="q11b"><input id="q11b" type="radio" name="q11" value="1">B.False</label><br>
+            <label for="q11c"><input id="q11c" type="radio" name="q11" value="0">C.nan</label><br>
+            <label for="q11d"><input id="q11d" type="radio" name="q11" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>12.LED has a better life span than LCD.</p>
+            <label for="q12a"><input id="q12a" type="radio" name="q12" value="0">A.True</label><br>
+            <label for="q12b"><input id="q12b" type="radio" name="q12" value="1">B.False</label><br>
+            <label for="q12c"><input id="q12c" type="radio" name="q12" value="0">C.nan</label><br>
+            <label for="q12d"><input id="q12d" type="radio" name="q12" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>13.Passive matrix can create a greyscale of 16 color</p>
+            <label for="q13a"><input id="q13a" type="radio" name="q13" value="1">A.True</label><br>
+            <label for="q13b"><input id="q13b" type="radio" name="q13" value="0">B.False</label><br>
+            <label for="q13c"><input id="q13c" type="radio" name="q13" value="0">C.nan</label><br>
+            <label for="q13d"><input id="q13d" type="radio" name="q13" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>14.Active matrix display has less brightness and contrast than passive matrix display.</p>
+            <label for="q14a"><input id="q14a" type="radio" name="q14" value="0">A.True</label><br>
+            <label for="q14b"><input id="q14b" type="radio" name="q14" value="1">B.False</label><br>
+            <label for="q14c"><input id="q14c" type="radio" name="q14" value="0">C.nan</label><br>
+            <label for="q14d"><input id="q14d" type="radio" name="q14" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>15.Color of the led depends on …..</p>
+            <label for="q15a"><input id="q15a" type="radio" name="q15" value="1">A.Fabrication materials</label><br>
+            <label for="q15b"><input id="q15b" type="radio" name="q15" value="0">B.Forward voltage</label><br>
+            <label for="q15c"><input id="q15c" type="radio" name="q15" value="0">C.Forward current</label><br>
+            <label for="q15d"><input id="q15d" type="radio" name="q15" value="0">D.Outer paint</label><br>
+        </div>
+        <div class="question">
+            <p>16.Which of the following materials canbe used to produce infrared LED?</p>
+            <label for="q16a"><input id="q16a" type="radio" name="q16" value="0">A. Si</label><br>
+            <label for="q16b"><input id="q16b" type="radio" name="q16" value="0">B.GaAsP </label><br>
+            <label for="q16c"><input id="q16c" type="radio" name="q16" value="0">C.GaP </label><br>
+            <label for="q16d"><input id="q16d" type="radio" name="q16" value="1">D.b and c </label><br>
+        </div>
+        <div class="question">
+            <p>17.The amount of light emitted from led isproportional to …. </p>
+            <label for="q17a"><input id="q17a" type="radio" name="q17" value="0">A.Forward voltage </label><br>
+            <label for="q17b"><input id="q17b" type="radio" name="q17" value="1">B.Forward Current </label><br>
+            <label for="q17c"><input id="q17c" type="radio" name="q17" value="0">C.Series Current </label><br>
+            <label for="q17d"><input id="q17d" type="radio" name="q17" value="0">D.All of the above</label><br>
+        </div>
+        <div class="question">
+            <p>18.Which of the following is Not trueregarding the ‘Li-fi’ network technology?</p>
+            <label for="q18a"><input id="q18a" type="radio" name="q18" value="0">A.It is faster than wi-fi </label><br>
+            <label for="q18b"><input id="q18b" type="radio" name="q18" value="0">B.It uses an LED bulb/Lamp </label><br>
+            <label for="q18c"><input id="q18c" type="radio" name="q18" value="1">C.It uses infrared waves</label><br>
+            <label for="q18d"><input id="q18d" type="radio" name="q18" value="0">D.It does not interfere with radio waves </label><br>
+        </div>
+        <div class="question">
+            <p>19.The Li-fi is more secure than Wi-Fibecause</p>
+            <label for="q19a"><input id="q19a" type="radio" name="q19" value="0">A.It’s much faster </label><br>
+            <label for="q19b"><input id="q19b" type="radio" name="q19" value="1">B.light is blocked by the walls </label><br>
+            <label for="q19c"><input id="q19c" type="radio" name="q19" value="0">C.Coverage distance is lower than Wi-Fi</label><br>
+            <label for="q19d"><input id="q19d" type="radio" name="q19" value="0">D.All of the above </label><br>
+        </div>
+        <div class="question">
+            <p>20.OLED display is better than LEDbecause ….</p>
+            <label for="q20a"><input id="q20a" type="radio" name="q20" value="0">A.Consume much less power than LCDs </label><br>
+            <label for="q20b"><input id="q20b" type="radio" name="q20" value="0">B.They have high brightness </label><br>
+            <label for="q20c"><input id="q20c" type="radio" name="q20" value="0">C.Do not require any illuminating source </label><br>
+            <label for="q20d"><input id="q20d" type="radio" name="q20" value="1">D.All of the above </label><br>
+        </div>
+        <div class="question">
+            <p>21..BCD input 1000 is fed to a 7 segmentdisplay through a BCD to 7 segmentdecoder/driver. The segments which will lit upare …..</p>
+            <label for="q21a"><input id="q21a" type="radio" name="q21" value="0">A.a, b, d </label><br>
+            <label for="q21b"><input id="q21b" type="radio" name="q21" value="0">B.a, b, c </label><br>
+            <label for="q21c"><input id="q21c" type="radio" name="q21" value="1">C.all </label><br>
+            <label for="q21d"><input id="q21d" type="radio" name="q21" value="0">D.a, b, g, c, d </label><br>
+        </div>
+        <div class="question">
+            <p>22.In Common Anode 7-Segment Display,When we want a segment to be “on” weconnect it to …. </p>
+            <label for="q22a"><input id="q22a" type="radio" name="q22" value="0">A.‘1’ logic. </label><br>
+            <label for="q22b"><input id="q22b" type="radio" name="q22" value="1">B.‘0’ logic </label><br>
+            <label for="q22c"><input id="q22c" type="radio" name="q22" value="0">C.Can be ‘0’ or ‘1’</label><br>
+            <label for="q22d"><input id="q22d" type="radio" name="q22" value="0">D.Short circuit.</label><br>
+        </div>
+        <div class="question">
+            <p>23.In laser printing operation, during the charging process, does the photosensitive is charged with – 600v?</p>
+            <label for="q23a"><input id="q23a" type="radio" name="q23" value="1">A.True</label><br>
+            <label for="q23b"><input id="q23b" type="radio" name="q23" value="0">B.False</label><br>
+            <label for="q23c"><input id="q23c" type="radio" name="q23" value="0">C.nan</label><br>
+            <label for="q23d"><input id="q23d" type="radio" name="q23" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>24.In laser printing operation, does higher-end machines use a positively charged transfer roller?</p>
+            <label for="q24a"><input id="q24a" type="radio" name="q24" value="1">A.True</label><br>
+            <label for="q24b"><input id="q24b" type="radio" name="q24" value="0">B.False</label><br>
+            <label for="q24c"><input id="q24c" type="radio" name="q24" value="0">C.nan</label><br>
+            <label for="q24d"><input id="q24d" type="radio" name="q24" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>25.In laser printing operation, we get a bad quality text if we haven’t done the cleaning process?</p>
+            <label for="q25a"><input id="q25a" type="radio" name="q25" value="1">A.True</label><br>
+            <label for="q25b"><input id="q25b" type="radio" name="q25" value="0">B.False</label><br>
+            <label for="q25c"><input id="q25c" type="radio" name="q25" value="0">C.nan</label><br>
+            <label for="q25d"><input id="q25d" type="radio" name="q25" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>26.In laser printers, Monochrome printers only use one laser scanner assembly, color printers often have two or more?</p>
+            <label for="q26a"><input id="q26a" type="radio" name="q26" value="1">A.True</label><br>
+            <label for="q26b"><input id="q26b" type="radio" name="q26" value="0">B.False</label><br>
+            <label for="q26c"><input id="q26c" type="radio" name="q26" value="0">C.nan</label><br>
+            <label for="q26d"><input id="q26d" type="radio" name="q26" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>27.In laser printers, Color printing makes printing process harder?</p>
+            <label for="q27a"><input id="q27a" type="radio" name="q27" value="1">A.True</label><br>
+            <label for="q27b"><input id="q27b" type="radio" name="q27" value="0">B.False</label><br>
+            <label for="q27c"><input id="q27c" type="radio" name="q27" value="0">C.nan</label><br>
+            <label for="q27d"><input id="q27d" type="radio" name="q27" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>28.In laser printers, Color printers usually have a higher cost per page than monochrome printers?</p>
+            <label for="q28a"><input id="q28a" type="radio" name="q28" value="1">A.True</label><br>
+            <label for="q28b"><input id="q28b" type="radio" name="q28" value="0">B.False</label><br>
+            <label for="q28c"><input id="q28c" type="radio" name="q28" value="0">C.nan</label><br>
+            <label for="q28d"><input id="q28d" type="radio" name="q28" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>29.Which one of the following produces higher quality text on plain paper:</p>
+            <label for="q29a"><input id="q29a" type="radio" name="q29" value="0">A.Inkjet printer</label><br>
+            <label for="q29b"><input id="q29b" type="radio" name="q29" value="0">B.Solvent ink printer</label><br>
+            <label for="q29c"><input id="q29c" type="radio" name="q29" value="1">C.Laser printer</label><br>
+            <label for="q29d"><input id="q29d" type="radio" name="q29" value="0">D.Aqueous ink printer</label><br>
+        </div>
+        <div class="question">
+            <p>30.Which one of the following produces ruined text on plain paper</p>
+            <label for="q30a"><input id="q30a" type="radio" name="q30" value="0">A.Aqueous ink printer</label><br>
+            <label for="q30b"><input id="q30b" type="radio" name="q30" value="0">B.Inkjet printer</label><br>
+            <label for="q30c"><input id="q30c" type="radio" name="q30" value="1">C.All of the above</label><br>
+            <label for="q30d"><input id="q30d" type="radio" name="q30" value="0">D.None of the above</label><br>
+        </div>
+        <div class="question">
+            <p>31.What is the purpose of the Discharge lamp?</p>
+            <label for="q31a"><input id="q31a" type="radio" name="q31" value="0">A.To charge the paper with positive voltage</label><br>
+            <label for="q31b"><input id="q31b" type="radio" name="q31" value="0">B.To Transfer the negative electrostatic charges to the paper.</label><br>
+            <label for="q31c"><input id="q31c" type="radio" name="q31" value="1">C.To remove the remaining charge from the photoreceptor.</label><br>
+            <label for="q31d"><input id="q31d" type="radio" name="q31" value="0">D.To charge the photoreceptor with positive voltage</label><br>
+        </div>
+        <div class="question">
+            <p>32.How many processes on xerography approach</p>
+            <label for="q32a"><input id="q32a" type="radio" name="q32" value="0">A.5</label><br>
+            <label for="q32b"><input id="q32b" type="radio" name="q32" value="0">B.6</label><br>
+            <label for="q32c"><input id="q32c" type="radio" name="q32" value="1">C.7</label><br>
+            <label for="q32d"><input id="q32d" type="radio" name="q32" value="0">D.8</label><br>
+        </div>
+        <div class="question">
+            <p>33.In EL display, the matrix of phosphor elements is sandwiched between …………..</p>
+            <label for="q33a"><input id="q33a" type="radio" name="q33" value="0">A.Two dielectric layers</label><br>
+            <label for="q33b"><input id="q33b" type="radio" name="q33" value="1">B.Two conductive layers</label><br>
+            <label for="q33c"><input id="q33c" type="radio" name="q33" value="0">C.One conductive</label><br>
+            <label for="q33d"><input id="q33d" type="radio" name="q33" value="0">D.Layer and one dielectric layer</label><br>
+        </div>
+        <div class="question">
+            <p>34.The EL wire component that is chemically dyed to produce a vast array of colors is……………… .</p>
+            <label for="q34a"><input id="q34a" type="radio" name="q34" value="0">A.Phosphor lubricant</label><br>
+            <label for="q34b"><input id="q34b" type="radio" name="q34" value="0">B.inner PVC sleeve</label><br>
+            <label for="q34c"><input id="q34c" type="radio" name="q34" value="1">C.Outer PVC sleeve</label><br>
+            <label for="q34d"><input id="q34d" type="radio" name="q34" value="0">D.thin copper wires</label><br>
+        </div>
+        <div class="question">
+            <p>35.Which of the following is a/an Disadvantage of Electroluminescence (EL) ?</p>
+            <label for="q35a"><input id="q35a" type="radio" name="q35" value="1">A.High operating voltage ( 60-600 volt ).</label><br>
+            <label for="q35b"><input id="q35b" type="radio" name="q35" value="0">B.Wide viewing angle.</label><br>
+            <label for="q35c"><input id="q35c" type="radio" name="q35" value="0">C.Visibility under sunlight</label><br>
+            <label for="q35d"><input id="q35d" type="radio" name="q35" value="0">D. High resolution.</label><br>
+        </div>
+        <div class="question">
+            <p>36.Which of the following is a/an Advantage of Electroluminescence (EL) ?</p>
+            <label for="q36a"><input id="q36a" type="radio" name="q36" value="0">A.Greater power consumption</label><br>
+            <label for="q36b"><input id="q36b" type="radio" name="q36" value="0">B.Inadequate brightness and chromaticity.</label><br>
+            <label for="q36c"><input id="q36c" type="radio" name="q36" value="1">C.Low operating temperature.</label><br>
+            <label for="q36d"><input id="q36d" type="radio" name="q36" value="0">D.The organic phosphor materials used have a very limited life span.</label><br>
+        </div>
+        <div class="question">
+            <p>37.How much is the efficiency of El?</p>
+            <label for="q37a"><input id="q37a" type="radio" name="q37" value="0">A.0.75</label><br>
+            <label for="q37b"><input id="q37b" type="radio" name="q37" value="1">B.0.8</label><br>
+            <label for="q37c"><input id="q37c" type="radio" name="q37" value="0">C.0.65</label><br>
+            <label for="q37d"><input id="q37d" type="radio" name="q37" value="0">D.0.5</label><br>
+        </div>
+        <div class="question">
+            <p>38.The Advantage/s of Head-Up displays (HUD) application is/are ………</p>
+            <label for="q38a"><input id="q38a" type="radio" name="q38" value="0">A.Minimize driver’s eye movement</label><br>
+            <label for="q38b"><input id="q38b" type="radio" name="q38" value="0">B.Visibility under sunlight.</label><br>
+            <label for="q38c"><input id="q38c" type="radio" name="q38" value="1">C.A and B are true.</label><br>
+            <label for="q38d"><input id="q38d" type="radio" name="q38" value="0">D.None of the above.</label><br>
+        </div>
+        <div class="question">
+            <p>39.El display consist of a matrix of … </p>
+            <label for="q39a"><input id="q39a" type="radio" name="q39" value="1">A.pixels </label><br>
+            <label for="q39b"><input id="q39b" type="radio" name="q39" value="0">B.electrodes</label><br>
+            <label for="q39c"><input id="q39c" type="radio" name="q39" value="0">C.Cell</label><br>
+            <label for="q39d"><input id="q39d" type="radio" name="q39" value="0">D.none</label><br>
+        </div>
+        <div class="question">
+            <p>40.The display is viewed through the…….. </p>
+            <label for="q40a"><input id="q40a" type="radio" name="q40" value="1">A.glass substrate </label><br>
+            <label for="q40b"><input id="q40b" type="radio" name="q40" value="0">B.LCD panels </label><br>
+            <label for="q40c"><input id="q40c" type="radio" name="q40" value="0">C.ITO glass </label><br>
+            <label for="q40d"><input id="q40d" type="radio" name="q40" value="0">D.none</label><br>
+        </div>
+        <div class="question">
+            <p>41.With no voltage across the electrodes the pixel appears…... </p>
+            <label for="q41a"><input id="q41a" type="radio" name="q41" value="0">A.white </label><br>
+            <label for="q41b"><input id="q41b" type="radio" name="q41" value="0">B.transparent</label><br>
+            <label for="q41c"><input id="q41c" type="radio" name="q41" value="1">C.black</label><br>
+            <label for="q41d"><input id="q41d" type="radio" name="q41" value="0">D.none</label><br>
+        </div>
+        <div class="question">
+            <p>42.As an example of Electroluminescent application.. </p>
+            <label for="q42a"><input id="q42a" type="radio" name="q42" value="0">A.Liquid crystal display</label><br>
+            <label for="q42b"><input id="q42b" type="radio" name="q42" value="0">B.Night lamps </label><br>
+            <label for="q42c"><input id="q42c" type="radio" name="q42" value="0">C.Head Up display</label><br>
+            <label for="q42d"><input id="q42d" type="radio" name="q42" value="1">D.All of the above</label><br>
+        </div>
+        <div class="question">
+            <p>43.The …………… generates the row and column address signals required for pixel matrix multiplexing in graphic displays</p>
+            <label for="q43a"><input id="q43a" type="radio" name="q43" value="0">A.MUX</label><br>
+            <label for="q43b"><input id="q43b" type="radio" name="q43" value="0">B.RAM</label><br>
+            <label for="q43c"><input id="q43c" type="radio" name="q43" value="1">C.Microprocessor</label><br>
+            <label for="q43d"><input id="q43d" type="radio" name="q43" value="0">D.Archived Memory</label><br>
+        </div>
+        <div class="question">
+            <p>44.Color-TFT(thin-film transistor) liquid crystal displays are used to display the …………………. Values.</p>
+            <label for="q44a"><input id="q44a" type="radio" name="q44" value="0">A.Output</label><br>
+            <label for="q44b"><input id="q44b" type="radio" name="q44" value="0">B.Measured</label><br>
+            <label for="q44c"><input id="q44c" type="radio" name="q44" value="0">C.Input</label><br>
+            <label for="q44d"><input id="q44d" type="radio" name="q44" value="1">D.A & B</label><br>
+        </div>
+        <div class="question">
+            <p>45.What are Advantages of paperless recorders</p>
+            <label for="q45a"><input id="q45a" type="radio" name="q45" value="0">A.Reduces non-compliances </label><br>
+            <label for="q45b"><input id="q45b" type="radio" name="q45" value="0">B.Improves Process Quality </label><br>
+            <label for="q45c"><input id="q45c" type="radio" name="q45" value="0">C.Archiving Savings </label><br>
+            <label for="q45d"><input id="q45d" type="radio" name="q45" value="1">D.All of the above</label><br>
+        </div>
+        <div class="question">
+            <p>46.What are disadvantages of paperless recorders</p>
+            <label for="q46a"><input id="q46a" type="radio" name="q46" value="0">A.Training Costs</label><br>
+            <label for="q46b"><input id="q46b" type="radio" name="q46" value="0">B.Health Concerns </label><br>
+            <label for="q46c"><input id="q46c" type="radio" name="q46" value="0">C.IT Expertise Required </label><br>
+            <label for="q46d"><input id="q46d" type="radio" name="q46" value="1">D.All of the above</label><br>
+        </div>
+        <div class="question">
+            <p>47.Paperless recorder sets up scheduled uploads of recorded data and can export it to excel.</p>
+            <label for="q47a"><input id="q47a" type="radio" name="q47" value="1">A.True</label><br>
+            <label for="q47b"><input id="q47b" type="radio" name="q47" value="0">B.False</label><br>
+            <label for="q47c"><input id="q47c" type="radio" name="q47" value="0">C.nan</label><br>
+            <label for="q47d"><input id="q47d" type="radio" name="q47" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>48.Paperless Recorder stores data in RAM.</p>
+            <label for="q48a"><input id="q48a" type="radio" name="q48" value="1">A.True</label><br>
+            <label for="q48b"><input id="q48b" type="radio" name="q48" value="0">B.False</label><br>
+            <label for="q48c"><input id="q48c" type="radio" name="q48" value="0">C.nan</label><br>
+            <label for="q48d"><input id="q48d" type="radio" name="q48" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>49.In Paperless recorder the input measurement signals are output to a multiplexer</p>
+            <label for="q49a"><input id="q49a" type="radio" name="q49" value="0">A.True</label><br>
+            <label for="q49b"><input id="q49b" type="radio" name="q49" value="1">B.False</label><br>
+            <label for="q49c"><input id="q49c" type="radio" name="q49" value="0">C.nan</label><br>
+            <label for="q49d"><input id="q49d" type="radio" name="q49" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>50.Paperless Recorder has a LED screen.</p>
+            <label for="q50a"><input id="q50a" type="radio" name="q50" value="0">A.True</label><br>
+            <label for="q50b"><input id="q50b" type="radio" name="q50" value="1">B.False</label><br>
+            <label for="q50c"><input id="q50c" type="radio" name="q50" value="0">C.nan</label><br>
+            <label for="q50d"><input id="q50d" type="radio" name="q50" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>51.The selected signal is converted into parallel digital form by an analogue-to-digital converter for input of microprocessor</p>
+            <label for="q51a"><input id="q51a" type="radio" name="q51" value="1">A.True</label><br>
+            <label for="q51b"><input id="q51b" type="radio" name="q51" value="0">B.False</label><br>
+            <label for="q51c"><input id="q51c" type="radio" name="q51" value="0">C.nan</label><br>
+            <label for="q51d"><input id="q51d" type="radio" name="q51" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>52.what is  The pen positioning accuracy of Analog Recorder…………</p>
+            <label for="q52a"><input id="q52a" type="radio" name="q52" value="0">A.±0.2%</label><br>
+            <label for="q52b"><input id="q52b" type="radio" name="q52" value="1">B.±0.8%</label><br>
+            <label for="q52c"><input id="q52c" type="radio" name="q52" value="0">C.±0.5%</label><br>
+            <label for="q52d"><input id="q52d" type="radio" name="q52" value="0">D.None of the above</label><br>
+        </div>
+        <div class="question">
+            <p>53.Which of the following is a type  of Circular Chart Recorders………</p>
+            <label for="q53a"><input id="q53a" type="radio" name="q53" value="0">A.Pneumatic</label><br>
+            <label for="q53b"><input id="q53b" type="radio" name="q53" value="0">B.Electrical</label><br>
+            <label for="q53c"><input id="q53c" type="radio" name="q53" value="1">C.Both a & b</label><br>
+            <label for="q53d"><input id="q53d" type="radio" name="q53" value="0">D.None of the above</label><br>
+        </div>
+        <div class="question">
+            <p>54.what is Input range variable  of X Y chart Recorder ……….. Pneumatic</p>
+            <label for="q54a"><input id="q54a" type="radio" name="q54" value="0">A.0 V/cm to 10 V/cm</label><br>
+            <label for="q54b"><input id="q54b" type="radio" name="q54" value="0">B.0.5 V/cm to 15 V/cm</label><br>
+            <label for="q54c"><input id="q54c" type="radio" name="q54" value="1">C.0.25 V/cm to 10 V/cm</label><br>
+            <label for="q54d"><input id="q54d" type="radio" name="q54" value="0">D.None of the above</label><br>
+        </div>
+        <div class="question">
+            <p>55.which of the following is advantage of XY chart Recorder ………..</p>
+            <label for="q55a"><input id="q55a" type="radio" name="q55" value="0">A.They will be able to draw grids and axis.</label><br>
+            <label for="q55b"><input id="q55b" type="radio" name="q55" value="0">B.Multi-pen Multi Ink plotting is possible.</label><br>
+            <label for="q55c"><input id="q55c" type="radio" name="q55" value="1">C.All of the Above</label><br>
+            <label for="q55d"><input id="q55d" type="radio" name="q55" value="0">D.None of the above</label><br>
+        </div>
+        <div class="question">
+            <p>56.which of the following is advantage of  Chart Recorder ………..</p>
+            <label for="q56a"><input id="q56a" type="radio" name="q56" value="1">A.easy to replace charts and makers</label><br>
+            <label for="q56b"><input id="q56b" type="radio" name="q56" value="0">B.No sections of the paper can be torn off and archived</label><br>
+            <label for="q56c"><input id="q56c" type="radio" name="q56" value="0">C.All of the Above</label><br>
+            <label for="q56d"><input id="q56d" type="radio" name="q56" value="0">D.None of the above</label><br>
+        </div>
+        <div class="question">
+            <p>57.which of the following is Disadvantage of  Chart Recorder ………..</p>
+            <label for="q57a"><input id="q57a" type="radio" name="q57" value="0">A.sections of the paper can be torn off and archived</label><br>
+            <label for="q57b"><input id="q57b" type="radio" name="q57" value="1">B.Data cannot be analyzed directly from paper</label><br>
+            <label for="q57c"><input id="q57c" type="radio" name="q57" value="0">C.easy to replace charts and makers</label><br>
+            <label for="q57d"><input id="q57d" type="radio" name="q57" value="0">D.None of the above</label><br>
+        </div>
+        <div class="question">
+            <p>58.What are the factors to consider when choosing the right chart recorder? ………..</p>
+            <label for="q58a"><input id="q58a" type="radio" name="q58" value="0">A.Numbers of inputs that must be recorded </label><br>
+            <label for="q58b"><input id="q58b" type="radio" name="q58" value="0">B.The type of interface necessary for your communications.</label><br>
+            <label for="q58c"><input id="q58c" type="radio" name="q58" value="1">C.Both a & b</label><br>
+            <label for="q58d"><input id="q58d" type="radio" name="q58" value="0">D.None of the above</label><br>
+        </div>
+        <div class="question">
+            <p>59.Which of these devices is more efficient in measuring?</p>
+            <label for="q59a"><input id="q59a" type="radio" name="q59" value="0">A.Siphon recorder</label><br>
+            <label for="q59b"><input id="q59b" type="radio" name="q59" value="1">B.data logger</label><br>
+            <label for="q59c"><input id="q59c" type="radio" name="q59" value="0">C.Circular Chart Recorder </label><br>
+            <label for="q59d"><input id="q59d" type="radio" name="q59" value="0">D.Strip Chart Recorder</label><br>
+        </div>
+        <div class="question">
+            <p>60.Paperless recorders are very huge with heavy weights.</p>
+            <label for="q60a"><input id="q60a" type="radio" name="q60" value="0">A.True</label><br>
+            <label for="q60b"><input id="q60b" type="radio" name="q60" value="1">B.False</label><br>
+            <label for="q60c"><input id="q60c" type="radio" name="q60" value="0">C.nan</label><br>
+            <label for="q60d"><input id="q60d" type="radio" name="q60" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>61.What determines light intensity in a CRT?</p>
+            <label for="q61a"><input id="q61a" type="radio" name="q61" value="0">A.voltage</label><br>
+            <label for="q61b"><input id="q61b" type="radio" name="q61" value="0">B.current</label><br>
+            <label for="q61c"><input id="q61c" type="radio" name="q61" value="1">C.momentum of electrons</label><br>
+            <label for="q61d"><input id="q61d" type="radio" name="q61" value="0">D.fluorescent screen </label><br>
+        </div>
+        <div class="question">
+            <p>62.Vertical deflection is given by ________</p>
+            <label for="q62a"><input id="q62a" type="radio" name="q62" value="0">A.y = Ky</label><br>
+            <label for="q62b"><input id="q62b" type="radio" name="q62" value="0">B.y = Vy</label><br>
+            <label for="q62c"><input id="q62c" type="radio" name="q62" value="0">C.y = 1</label><br>
+            <label for="q62d"><input id="q62d" type="radio" name="q62" value="1">D.y = Ky Vy</label><br>
+        </div>
+        <div class="question">
+            <p>63.Sometimes it is difficult to exchange a highly accelerated beam called</p>
+            <label for="q63a"><input id="q63a" type="radio" name="q63" value="0">A.post deflect acceleration </label><br>
+            <label for="q63b"><input id="q63b" type="radio" name="q63" value="1">B.Hard beam</label><br>
+            <label for="q63c"><input id="q63c" type="radio" name="q63" value="0">C.Mono accelerating tube</label><br>
+            <label for="q63d"><input id="q63d" type="radio" name="q63" value="0">D.nan</label><br>
+        </div>
+        <div class="question">
+            <p>64.This voltage is usually less than 4 kV and this output value gives _____ sensitivit and _______ brightness</p>
+            <label for="q64a"><input id="q64a" type="radio" name="q64" value="0">A.Less , increase</label><br>
+            <label for="q64b"><input id="q64b" type="radio" name="q64" value="1">B.Better , reduce </label><br>
+            <label for="q64c"><input id="q64c" type="radio" name="q64" value="0">C.better , increase</label><br>
+            <label for="q64d"><input id="q64d" type="radio" name="q64" value="0">D.Less , reduce</label><br>
+        </div>
+        <div class="question">
+            <p>65.……… is The smallest part of a picture .</p>
+            <label for="q65a"><input id="q65a" type="radio" name="q65" value="0">A.Bit</label><br>
+            <label for="q65b"><input id="q65b" type="radio" name="q65" value="1">B.Pixel</label><br>
+            <label for="q65c"><input id="q65c" type="radio" name="q65" value="0">C.Byte</label><br>
+            <label for="q65d"><input id="q65d" type="radio" name="q65" value="0">D.Frame</label><br>
+        </div>
+        <div class="question">
+            <p>66.In raster display system ,The frame array represents ……..</p>
+            <label for="q66a"><input id="q66a" type="radio" name="q66" value="0">A.Lines which will be drawn</label><br>
+            <label for="q66b"><input id="q66b" type="radio" name="q66" value="0">B.video history</label><br>
+            <label for="q66c"><input id="q66c" type="radio" name="q66" value="1">C.all screen pixels</label><br>
+            <label for="q66d"><input id="q66d" type="radio" name="q66" value="0">D.none of above</label><br>
+        </div>
+        <div class="question">
+            <p>67.The main major of display-processor is …….</p>
+            <label for="q67a"><input id="q67a" type="radio" name="q67" value="0">A.store the picture data</label><br>
+            <label for="q67b"><input id="q67b" type="radio" name="q67" value="0">B.transport picture data</label><br>
+            <label for="q67c"><input id="q67c" type="radio" name="q67" value="1">C.transform pictures to pixels</label><br>
+            <label for="q67d"><input id="q67d" type="radio" name="q67" value="0">D.none of above</label><br>
+        </div>
+        <div class="question">
+            <p>68.which technique is used when the beam reaches the end of a row ?</p>
+            <label for="q68a"><input id="q68a" type="radio" name="q68" value="1">A.Horizontal retrace</label><br>
+            <label for="q68b"><input id="q68b" type="radio" name="q68" value="0">B.Vertical retrace</label><br>
+            <label for="q68c"><input id="q68c" type="radio" name="q68" value="0">C.diagonal retrace</label><br>
+            <label for="q68d"><input id="q68d" type="radio" name="q68" value="0">D.none of above</label><br>
+        </div>
+        <div class="question">
+            <p>69.The main function of electron gun is …………</p>
+            <label for="q69a"><input id="q69a" type="radio" name="q69" value="0">A.Accelerating electron beam</label><br>
+            <label for="q69b"><input id="q69b" type="radio" name="q69" value="0">B.Focusing electron beam</label><br>
+            <label for="q69c"><input id="q69c" type="radio" name="q69" value="1">C.Both of a and b</label><br>
+            <label for="q69d"><input id="q69d" type="radio" name="q69" value="0">D.None of them</label><br>
+        </div>
+        <div class="question">
+            <p>70.For getting the high emission of electrons the voltage and current should be ……..</p>
+            <label for="q70a"><input id="q70a" type="radio" name="q70" value="0">A.1000 mA and 10 V</label><br>
+            <label for="q70b"><input id="q70b" type="radio" name="q70" value="1">B.600 mA and 6.3 V</label><br>
+            <label for="q70c"><input id="q70c" type="radio" name="q70" value="0">C.100mA and 8 V</label><br>
+            <label for="q70d"><input id="q70d" type="radio" name="q70" value="0">D.None of them </label><br>
+        </div>
+        <div class="question">
+            <p>71.The electron gun consists of ………</p>
+            <label for="q71a"><input id="q71a" type="radio" name="q71" value="0">A.Heater</label><br>
+            <label for="q71b"><input id="q71b" type="radio" name="q71" value="0">B.Cathode</label><br>
+            <label for="q71c"><input id="q71c" type="radio" name="q71" value="0">C.Accelerating and focusing anodes</label><br>
+            <label for="q71d"><input id="q71d" type="radio" name="q71" value="1">D.All of them</label><br>
+        </div>
+        <div class="question">
+            <p>72.The grid which controls the flow of electrons has ……..</p>
+            <label for="q72a"><input id="q72a" type="radio" name="q72" value="1">A.Negative Biasing</label><br>
+            <label for="q72b"><input id="q72b" type="radio" name="q72" value="0">B.Positive Biasing</label><br>
+            <label for="q72c"><input id="q72c" type="radio" name="q72" value="0">C.No Biasing</label><br>
+            <label for="q72d"><input id="q72d" type="radio" name="q72" value="0">D.None of them</label><br>
+        </div>
+        
+        
+        
+            <button id="btn" type="submit"> submit </button>
+    </form>
+    <button id="confirm" >i'm ready</button>
+    <script>
+        // var HOST = "ws://localhost:3000";
+        // var HOST = location.origin.replace(/^http/, 'ws');
+		// var ws = new WebSocket(HOST); //#A
+        // ws.onopen = function(){
+        //     console.log("opened");
+		// }
+        // ws.onmessage = function(event){
+        //     console.log(event);
+        // }
+        // ws.onclose = function(){
+            
+        // }
+        // ws.onerror=function(){
+        // }
+        var show_ans = document.getElementById("show_ans");
+        ans = document.getElementsByTagName('input')
+        show_counter = 0
+        show_ans.onclick = function(){
+            show_counter+=1
+            for (var i = 0; i < ans.length; i++){
+                if (ans[i].value == 1){
+                    if(show_counter % 2 == 0){
+                        ans[i].parentElement.style.backgroundColor = '#1f2932';
+                    }else{
+                        ans[i].parentElement.style.backgroundColor = '#253d52';
+                    }
+                }
+            };
+        }
+        var button = document.getElementById("btn");
+        button.onclick = function(){
+            var deg = 0;
+            var qn = document.getElementsByClassName("question");
+            qn = Number(qn.length);
+            var myq="";
+            const errors = new Array();
+            var c=0;
+            for(var i =1;i<=qn;i++){
+                myq = "q"+i;
+                deg += Number(document.quiz[myq].value);
+                if( Number(document.quiz[myq].value)==0){
+                    errors[c] = myq;
+                    c+=1;
+                }
+            };
+            var perc = (deg*100)/qn; 
+            document.getElementById("quiz").style.display = "none";
+            document.getElementById("res").textContent = "\n your degree is: " +deg+"\n with percentage of " +perc +" %"+"\n your mistakes in questions : " +errors;
+            alert(" your degree is: " +deg+"\n with percentage of " +perc +" %"+"\n mistakes in question: "+errors);
+            
+            
+        }
+        let i =1;
+        var confirmbtn = document.getElementById("confirm");
+        confirmbtn.onclick = function(){
+            if(i==1){
+                alert("you are about to submit your answer!!");
+                i-=1;
+            }
+            if(button.style.display=="none"){
+                button.style.display="block";
+                confirmbtn.innerText="No, don't submit";
+            }else{
+                button.style.display="none";
+                confirmbtn.innerText="Yes, i want to submit";
+            }
+        }
+    </script>
+</body>
+</html>
