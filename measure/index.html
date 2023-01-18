@@ -8,14 +8,21 @@
     <style>
         p{
             font-size: 20px;
-            color: #dbe2e8;
-            background-color: #1f2932;
+            color: #1e1e1e;
+            background-color: #DDD;
+        }
+        label{
+            color:#333;
+            font-size: 20px;
+            background-color: #DDD;
+            width: fit-content;
+            border-radius: 20%;
         }
         body{
-            background-color: #1f2932;
+            background-color: #DDD;
         }
         .question{
-            border: 1px solid #dbe2e8;
+            border: 1px solid #333;
             border-radius: 10px;
             margin: 20px auto;
         }
@@ -24,7 +31,7 @@
             margin-bottom: 55px;
             font-size: 40px;
             font-family: tahoma,arial;
-            color: #dbe2e8;
+            color: #1e1e1e;
         }
         #btn{
             display: none;
@@ -73,7 +80,7 @@
             width: 100%;
             line-height: 50px;
             font-family: inherit;
-            background: #37b5a9;
+            background: #9f4141;
             -webkit-border-radius: 10px;
             -moz-border-radius: 10px;
             border-radius: 10px;
@@ -104,7 +111,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: #ccc;
+        background-color: #1e1e1e;
         -webkit-transition: .4s;
         transition: .4s;
         }
@@ -122,11 +129,11 @@
         }
 
         input:checked + .slider {
-        background-color: #2196F3;
+        background-color: rgb(80, 182, 49);
         }
 
         input:focus + .slider {
-        box-shadow: 0 0 1px #2196F3;
+        box-shadow: 0 0 1px rgb(186, 197, 72);
         }
 
         input:checked + .slider:before {
@@ -696,9 +703,9 @@
             for (var i = 0; i < ans.length; i++){
                 if (ans[i].value == 1){
                     if(show_counter % 2 == 0){
-                        ans[i].parentElement.style.backgroundColor = '#1f2932';
+                        ans[i].parentElement.style.backgroundColor = '#DDD';
                     }else{
-                        ans[i].parentElement.style.backgroundColor = '#253d52';
+                        ans[i].parentElement.style.backgroundColor = 'rgb(186, 197, 72)';
                     }
                 }
             };
