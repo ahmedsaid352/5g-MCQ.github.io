@@ -89,7 +89,9 @@ p:nth-of-type(odd){
     h1{
         margin-bottom: 20%;
     }
-
+    p{
+        font-size: 27px;
+    }
     #name{
         margin-top: 20%;
     }
@@ -104,7 +106,9 @@ p:nth-of-type(odd){
     h1{
         margin-bottom: 25%;
     }
-
+    p{
+        font-size: 27px;
+    }
     #name{
         margin-top: 20%;
     }
