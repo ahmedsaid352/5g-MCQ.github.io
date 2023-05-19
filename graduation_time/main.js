@@ -11,8 +11,8 @@ function secondsToDhms(seconds) {
     return dDisplay + hDisplay + mDisplay + sDisplay;
     }
 //Define final & project dates 
-let final = new Date("19 june 2023");
-let project = new Date("18 july 2023");
+let final = new Date("18 june 2023 15:00");
+let project = new Date("17 july 2023 15:00");
 // define where to show data
 var display_final = document.getElementById("final");
 var display_proj  = document.getElementById("project");
