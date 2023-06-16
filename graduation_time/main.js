@@ -17,12 +17,33 @@ let project = new Date("17 july 2023 15:00");
 var display_final = document.getElementById("final");
 var display_proj  = document.getElementById("project");
 // display function to refresh date every second
-function displaydate(){
-    let datenow     = new Date();
-    let finaldiff   = final - datenow;
+function displaydate() {
+    let datenow = new Date();
+    let finaldiff = final - datenow;
     let projectdiff = project - datenow;
-    let readyfinal  = secondsToDhms(finaldiff);
-    let readyproj   = secondsToDhms(projectdiff);
-    display_final.innerHTML = readyfinal;
-    display_proj.innerHTML  = readyproj;
-}
+    let readyfinal = secondsToDhms(finaldiff);
+    let readyproj = secondsToDhms(projectdiff);
+    const aphorisms = [
+        'الصوت يا بشمهندسيييييييين - نسر و نسر',
+        'والله لو إجابتك صح هكدب ومش هتاخدها- توحه',
+        'انا مش فاهم الحته دي كويس اتمنى تكونوا فاهمين - توحه',
+        'اعتمدوا على نفسكم كما كنتم تعتمدوا على نفسكم وام تحضروا المحاضرات - الزاجل',
+        'كل عام وانتم بالف خير وصحة وسعادة - عم غريب'
+    ]
+    if (finaldiff < 0) {
+        const randomIndex = Math.floor(Math.random() * aphorisms.length);
+        const message = aphorisms[randomIndex];
+        display_final.innerHTML = message;
+    } else {
+        display_final.innerHTML = readyfinal;
+    }
+    if (projectdiff < 0) {
+        const song = "Give me freedom, give me fire, give me reason, take me higher";
+        const index = Math.min(Math.floor(-finaldiff / 1000), song.length);
+        const message = song.substring(0, index);
+        display_proj.innerHTML = message;
+    } else {
+        display_proj.innerHTML = readyproj;
+    }
+
+    }
