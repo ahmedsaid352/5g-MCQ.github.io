@@ -10,40 +10,37 @@ function secondsToDhms(seconds) {
     var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
     return dDisplay + hDisplay + mDisplay + sDisplay;
     }
-//Define final & project dates 
-let final = new Date("18 june 2023 15:00");
-let project = new Date("17 july 2023 15:00");
+
+//Define graduation date 
+let graduation_date = new Date("15 july 2023 12:38");
+
 // define where to show data
-var display_final = document.getElementById("final");
-var display_proj  = document.getElementById("project");
+var display_graduation_date  = document.getElementById("graduation_date");
+
+// define the aphorism 
+var display_aphorism  = document.getElementById("aphorism");
+
+// define aphorisms
+const aphorisms = [
+    'الصوت يا بشمهندسيييييييين - نسر و نسر',
+    'والله لو إجابتك صح هكدب ومش هتاخدها- توحه',
+    'انا مش فاهم الحته دي كويس اتمنى تكونوا فاهمين - توحه',
+    'اعتمدوا على نفسكم كما كنتم تعتمدوا على نفسكم وام تحضروا المحاضرات - الزاجل',
+    'كل عام وانتم بالف خير وصحة وسعادة - عم غريب',
+    'sarsor -  Naive Implementation'
+]
+
 // display function to refresh date every second
 function displaydate() {
     let datenow = new Date();
-    let finaldiff = final - datenow;
-    let projectdiff = project - datenow;
-    let readyfinal = secondsToDhms(finaldiff);
+    let projectdiff = datenow - graduation_date;
     let readyproj = secondsToDhms(projectdiff);
-    const aphorisms = [
-        'الصوت يا بشمهندسيييييييين - نسر و نسر',
-        'والله لو إجابتك صح هكدب ومش هتاخدها- توحه',
-        'انا مش فاهم الحته دي كويس اتمنى تكونوا فاهمين - توحه',
-        'اعتمدوا على نفسكم كما كنتم تعتمدوا على نفسكم وام تحضروا المحاضرات - الزاجل',
-        'كل عام وانتم بالف خير وصحة وسعادة - عم غريب'
-    ]
-    if (finaldiff < 0) {
-        const randomIndex = Math.floor(Math.random() * aphorisms.length);
-        const message = aphorisms[randomIndex];
-        display_final.innerHTML = message;
-    } else {
-        display_final.innerHTML = readyfinal;
-    }
-    if (projectdiff < 0) {
-        const song = "Give me freedom, give me fire, give me reason, take me higher";
-        const index = Math.min(Math.floor(-finaldiff / 1000), song.length);
-        const message = song.substring(0, index);
-        display_proj.innerHTML = message;
-    } else {
-        display_proj.innerHTML = readyproj;
+    display_graduation_date.innerHTML = readyproj;
     }
 
-    }
+
+function displayaphorism(){
+    const randomIndex = Math.floor(Math.random() * aphorisms.length);
+    const message = aphorisms[randomIndex];
+    display_aphorism.innerHTML = message;
+}
